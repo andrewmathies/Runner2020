@@ -2,11 +2,12 @@
 An endless runner made in Unity.
 
 ### Emails
-John: jtong1019@gmail.com
-Darin: darin.ellis7@gmail.com
-Andrew: andrewmathies1@gmail.com
+- John: jtong1019@gmail.com
+- Darin: darin.ellis7@gmail.com
+- Andrew: andrewmathies1@gmail.com
 
-Using Discord Server to communicate
+### Discord Server
+links don't last?
 
 ### Zenhub Board
 https://app.zenhub.com/workspaces/game-5e9488b9fae5a9730721fbd8/board?repos=253361154
