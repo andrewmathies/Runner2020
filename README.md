@@ -1,13 +1,21 @@
 # Runner2020
+An endless runner made in Unity.
 
-use discord to communicate?
+### Emails
+John: jtong1019@gmail.com
+Darin: darin.ellis7@gmail.com
+Andrew: andrewmathies1@gmail.com
 
+Using Discord Server to communicate
 
-use trello for board?
-https://trello.com/invite/b/kinBbcR8/9ddbe789071f49096b8a495b4da4671c/game
+### Zenhub Board
+https://app.zenhub.com/workspaces/game-5e9488b9fae5a9730721fbd8/board?repos=253361154
 
-Unity docs
+### C# Docs
+https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/
+
+### Unity Docs
 https://docs.unity3d.com/
 
-ci/cd
+### Unity Console
 https://developer.cloud.unity3d.com/
