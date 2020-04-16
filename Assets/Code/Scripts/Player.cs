@@ -6,14 +6,14 @@ public class Player : MonoBehaviour
 {
     public float Speed, CellWidth;
 
-    private ObstacleGenerator gen;
+    private ObstacleManager obstacleManager;
     private float sim;
 
     // Start is called before the first frame update
     void Start()
     {
         sim = 0;
-        gen = GameObject.FindObjectOfType(typeof(ObstacleGenerator)) as ObstacleGenerator;
+        obstacleManager = GameObject.FindObjectOfType(typeof(ObstacleManager)) as ObstacleManager;
     
         Debug.Log("Player is initialized");
     }
@@ -24,8 +24,8 @@ public class Player : MonoBehaviour
         sim += Speed * Time.deltaTime;
 
         if (sim > CellWidth) {
-            Debug.Log("Hit a new cell!");
-            gen.GenerateNext();
+            //Debug.Log("Player ran the length of a cell");
+            obstacleManager.NextCell();
             sim = 0;
         }
     }

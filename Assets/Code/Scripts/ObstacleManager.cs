@@ -5,10 +5,10 @@ using System;
 
 using Data;
 
-public class ObstacleGenerator : MonoBehaviour
+public class ObstacleManager : MonoBehaviour
 {
     public GameObject player;
-    public GameObject blackObstacle, blueObstacle, greenObstacle;
+    public GameObject obstaclePrefab;
     public Vector3 newObstaclePosition;
     public Transform obstacleContainer;
 
@@ -18,14 +18,12 @@ public class ObstacleGenerator : MonoBehaviour
     private Difficulty difficulty;
     private AdjacencyRules rules;
     private System.Random numberGenerator;
-    private Queue<GameObject> obstacles;
-    private Dictionary<GameObject, ObstacleType> typeDict;
+    private Queue<Obstacle> obstacles;
 
     // Start is called before the first frame update
     void Start()
     {
-        obstacles = new Queue<GameObject>();
-        typeDict = new Dictionary<GameObject, ObstacleType>();
+        obstacles = new Queue<Obstacle>();
         numberGenerator = new System.Random();
         difficulty = Difficulty.Easy;
 
@@ -60,16 +58,19 @@ public class ObstacleGenerator : MonoBehaviour
             }
         }
 
+        // in this case, do not generate an obstacle
         return null;
     }
 
-    // returns distances to the closest obstacle of each type in cells. 
+    // returns distances to the closest obstacle of each type in cells
     private Dictionary<ObstacleType, int> calculateDistances() {
         Dictionary<ObstacleType, int> distances = new Dictionary<ObstacleType, int>();
         Grid grid = GameObject.FindObjectOfType(typeof(Grid)) as Grid;
 
-        foreach (GameObject obstacle in obstacles) {
-            ObstacleType type = typeDict[obstacle];
+        // iterate through all obstacles in the scene, starting with oldest
+        // i.e. farthest from the right side of the screen
+        foreach (Obstacle obstacle in obstacles) {
+            ObstacleType type = obstacle.Type;
             
             if (distances.ContainsKey(type)) {
                 distances.Remove(type);
@@ -85,29 +86,16 @@ public class ObstacleGenerator : MonoBehaviour
     }
 
     // returns a new game object to be placed in the scene as a new obstacle
-    // TODO: instead of switch, have init function that can be called on the newly made object that takes obstacle type as paramater
-    private GameObject createObstacle(ObstacleType type) {
-        GameObject prefab;
-        
-        switch (type) {
-            case ObstacleType.Black:
-                prefab = blackObstacle;
-                break;
-            case ObstacleType.Blue:
-                prefab = blueObstacle;
-                break;
-            case ObstacleType.Green:
-                prefab = greenObstacle;
-                break;
-            default:
-                throw new System.ArgumentException("Invalid obstacle type: " + type);
-        }
-        
-        return Instantiate(prefab, newObstaclePosition, Quaternion.identity, obstacleContainer);
+    // create it under the obstaclecontainer in the scene hierarchy
+    private Obstacle createObstacle(ObstacleType type) {
+        GameObject newObstacleGameObject = Instantiate(obstaclePrefab, newObstaclePosition, Quaternion.identity, obstacleContainer);
+        Obstacle newObstacle = newObstacleGameObject.GetComponent<Obstacle>();
+        newObstacle.Init(type);
+        return newObstacle;
     }
 
-    // Remove the oldest cell from our queue, and create a new cell. Decide what kind of object should be in the new cell. 
-    public void GenerateNext() {
+    // this is called by the player every time it "runs the length of a new cell"
+    public void NextCell() {
         Dictionary<ObstacleType, int> distances = calculateDistances();
 
         // maybe this has empty elements that mean do not generate an obstacle. fill it with different amounts
@@ -116,10 +104,16 @@ public class ObstacleGenerator : MonoBehaviour
         ObstacleType? obstacle = obstacleDecider(difficulty, potentialObstacles);
 
         if (obstacle is ObstacleType newObstacleType) {
-            Debug.Log("Enqueueing a new obstacle: " + newObstacleType);
-            GameObject newObstacle = createObstacle(newObstacleType);
+            Obstacle newObstacle = createObstacle(newObstacleType);
+            Debug.Log("Enqueueing a new obstacle: " + newObstacle.Type);
             obstacles.Enqueue(newObstacle);
-            typeDict.Add(newObstacle, newObstacleType);
         }
+    }
+
+    // Remove the oldest obstacle from our queue
+    // Are we going to have obstacles that move at different speeds? if so then we can't just blindly assume
+    // the oldest thing in the queue is what we need to delete. TODO: change queue to dict with unique ids for each obstacle
+    public void RemoveObstacle() {
+        obstacles.Dequeue();
     }
 }

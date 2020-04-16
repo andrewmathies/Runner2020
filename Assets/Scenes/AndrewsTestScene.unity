@@ -7909,15 +7909,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1495536164}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70b93691fe651034387343c2fd3a72c9, type: 3}
+  m_Script: {fileID: 11500000, guid: 303d5627cb1fdbe449eefa2b6d54b584, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1098783874}
-  blackObstacle: {fileID: 1983875047703190574, guid: f342748bfe0cbb849b6fa53dbf923a33,
-    type: 3}
-  blueObstacle: {fileID: 2054986545160466644, guid: a5fdb5d74257ff640ba1aae09c6a1e38,
-    type: 3}
-  greenObstacle: {fileID: 6298614481694588881, guid: 1a57adb10c0e73b4baf15e4f45e2f274,
+  obstaclePrefab: {fileID: 1983875047703190574, guid: f342748bfe0cbb849b6fa53dbf923a33,
     type: 3}
   newObstaclePosition: {x: 12, y: 0, z: 0}
   obstacleContainer: {fileID: 1749280463}
