@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(Rigidbody2D))]
 public class JumpPlayer : MonoBehaviour
 {
 
@@ -11,16 +11,16 @@ public class JumpPlayer : MonoBehaviour
     public float jumpTakeOffSpeed = 7;
     //public JumpState jumpState = JumpState.Grounded;
     private bool stopJump;
-    Rigidbody rb;
-    public Vector3 jump;
+    Rigidbody2D rb;
+    public Vector2 jump;
     public float jumpForce = 2.0f;
 
     // Start is called before the first frame update
     void Start()
     {
         Debug.Log("hello");
-        rb = GetComponent<Rigidbody>();
-        jump = new Vector3(0.0f, jumpTakeOffSpeed, 0.0f);
+        rb = GetComponent<Rigidbody2D>();
+        jump = new Vector2(0.0f, jumpTakeOffSpeed);
     }
 
     // Update is called once per frame
@@ -29,7 +29,7 @@ public class JumpPlayer : MonoBehaviour
         if (Input.GetButtonUp("Jump"))
         {
             //jumpState = JumpState.PrepareToJump;
-            rb.AddForce(jump * jumpForce, ForceMode.Impulse);
+            rb.AddForce(jump * jumpForce, ForceMode2D.Impulse);
         }
 
         //UpdateJumpState();
