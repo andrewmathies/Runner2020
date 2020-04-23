@@ -2,95 +2,103 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
-public class JumpPlayer : MonoBehaviour
-{
-
-    private float x, y, z;
-    public float speed;
-    public float jumpTakeOffSpeed = 7;
-    //public JumpState jumpState = JumpState.Grounded;
-    private bool stopJump;
-    Rigidbody2D rb;
-    public Vector2 jump;
-    public float jumpForce = 2.0f;
-
-    // Start is called before the first frame update
-    void Start()
+namespace Player {
+    [RequireComponent(typeof(Rigidbody2D))]
+    public class JumpPlayer : MonoBehaviour
     {
-        Debug.Log("hello");
-        rb = GetComponent<Rigidbody2D>();
-        jump = new Vector2(0.0f, jumpTakeOffSpeed);
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetButtonUp("Jump"))
+        private float x, y, z;
+        public float speed;
+        public float jumpTakeOffSpeed = 7;
+        //public JumpState jumpState = JumpState.Grounded;
+        private bool stopJump;
+        Rigidbody2D rb;
+        public Vector2 jump;
+        public float jumpForce = 2.0f;
+        public Collider2D ground;
+
+        private bool grounded;
+
+        // Start is called before the first frame update
+        void Start()
         {
-            //jumpState = JumpState.PrepareToJump;
-            rb.AddForce(jump * jumpForce, ForceMode2D.Impulse);
+            Debug.Log("hello");
+            rb = GetComponent<Rigidbody2D>();
+            jump = new Vector2(0.0f, jumpTakeOffSpeed);
+            grounded = true;
         }
 
-        //UpdateJumpState();
-    }
-/*
-        void UpdateJumpState()
+        // Update is called once per frame
+        void Update()
         {
-            jump = false;
-            switch (jumpState)
+            grounded = rb.IsTouching(ground);
+
+            if (Input.GetButtonDown("Jump") && grounded)
             {
-                case JumpState.PrepareToJump:
-                    jumpState = JumpState.Jumping;
-                    jump = true;
-                    stopJump = false;
-                    break;
-                case JumpState.Jumping:
-                    if (!IsGrounded)
-                    {
-                        Schedule<PlayerJumped>().player = this;
-                        jumpState = JumpState.InFlight;
-                    }
-                    break;
-                case JumpState.InFlight:
-                    if (IsGrounded)
-                    {
-                        Schedule<PlayerLanded>().player = this;
-                        jumpState = JumpState.Landed;
-                    }
-                    break;
-                case JumpState.Landed:
-                    jumpState = JumpState.Grounded;
-                    break;
+                //jumpState = JumpState.PrepareToJump;
+                rb.AddForce(jump * jumpForce, ForceMode2D.Impulse);
             }
+            //UpdateJumpState();
         }
 
-        protected override void ComputeVelocity()
-        {
-            if (jump && IsGrounded)
+    /*
+            void UpdateJumpState()
             {
-                velocity.y = jumpTakeOffSpeed * model.jumpModifier;
                 jump = false;
-            }
-            else if (stopJump)
-            {
-                stopJump = false;
-                if (velocity.y > 0)
+                switch (jumpState)
                 {
-                    velocity.y = velocity.y * model.jumpDeceleration;
+                    case JumpState.PrepareToJump:
+                        jumpState = JumpState.Jumping;
+                        jump = true;
+                        stopJump = false;
+                        break;
+                    case JumpState.Jumping:
+                        if (!IsGrounded)
+                        {
+                            Schedule<PlayerJumped>().player = this;
+                            jumpState = JumpState.InFlight;
+                        }
+                        break;
+                    case JumpState.InFlight:
+                        if (IsGrounded)
+                        {
+                            Schedule<PlayerLanded>().player = this;
+                            jumpState = JumpState.Landed;
+                        }
+                        break;
+                    case JumpState.Landed:
+                        jumpState = JumpState.Grounded;
+                        break;
                 }
             }
 
-            targetVelocity = move * maxSpeed;
-        }
+            protected override void ComputeVelocity()
+            {
+                if (jump && IsGrounded)
+                {
+                    velocity.y = jumpTakeOffSpeed * model.jumpModifier;
+                    jump = false;
+                }
+                else if (stopJump)
+                {
+                    stopJump = false;
+                    if (velocity.y > 0)
+                    {
+                        velocity.y = velocity.y * model.jumpDeceleration;
+                    }
+                }
 
-        public enum JumpState
-        {
-            Grounded,
-            PrepareToJump,
-            Jumping,
-            InFlight,
-            Landed
-        }*/
-    //}
+                targetVelocity = move * maxSpeed;
+            }
+
+            public enum JumpState
+            {
+                Grounded,
+                PrepareToJump,
+                Jumping,
+                InFlight,
+                Landed
+            }*/
+        //}
+    }
 }

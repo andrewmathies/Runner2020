@@ -2,31 +2,35 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RunPlayer : MonoBehaviour
-{
-    public float Speed, CellWidth;
+using Obstacle;
 
-    private ObstacleManager obstacleManager;
-    private float sim;
-
-    // Start is called before the first frame update
-    void Start()
+namespace Player {
+    public class RunPlayer : MonoBehaviour
     {
-        sim = 0;
-        obstacleManager = GameObject.FindObjectOfType(typeof(ObstacleManager)) as ObstacleManager;
-    
-        Debug.Log("Player is initialized");
-    }
+        public float Speed, CellWidth;
 
-    // Update is called once per frame
-    void Update()
-    {
-        sim += Speed * Time.deltaTime;
+        private ObstacleManager obstacleManager;
+        private float sim;
 
-        if (sim > CellWidth) {
-            //Debug.Log("Player ran the length of a cell");
-            obstacleManager.NextCell();
+        // Start is called before the first frame update
+        void Start()
+        {
             sim = 0;
+            obstacleManager = GameObject.FindObjectOfType(typeof(ObstacleManager)) as ObstacleManager;
+        
+            Debug.Log("Player is initialized");
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+            sim += Speed * Time.deltaTime;
+
+            if (sim > CellWidth) {
+                //Debug.Log("Player ran the length of a cell");
+                obstacleManager.NextCell();
+                sim = 0;
+            }
         }
     }
 }
