@@ -1,0 +1,41 @@
+classDiagram
+    class MidiFile
+    
+    MidiFile : +Header Header
+    MidiFile : +Track[] Tracks
+
+    class Chunk{
+        +string Type
+        +uint Length
+        +byte[] Data
+    }
+
+    Chunk <|-- Track
+    Chunk <|-- Header
+
+    class Header{
+        +ushort Format
+        +ushort TrackCount
+        +ushort TimeDivision
+    }
+
+    class Track{
+        +Event[] Events
+    }
+
+    Event <|-- MidiEvent
+    Event <|-- MetaEvent
+
+    class Event{
+        +ulong deltaTime
+    }
+
+    class MetaEvent{
+        +int metaType
+    }
+
+    class MidiEvent{
+        +int pitch
+        +int octave
+        +int eventType
+    }

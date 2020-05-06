@@ -1,0 +1,49 @@
+/*
+            // test the variable length integer decoder
+            byte[] testData = new byte[20];
+
+            testData[0] = 0x00;
+            testData[1] = 0x40;
+            testData[2] = 0x7F;
+            testData[3] = 0x81;
+            testData[4] = 0x00;
+            testData[5] = 0xC0;
+            testData[6] = 0x00;
+            testData[7] = 0xFF;
+            testData[8] = 0x7F;
+            testData[9] = 0x81;
+            testData[10] = 0x80;
+            testData[11] = 0x00;
+
+            using (BinaryReader testReader = new BinaryReader(new MemoryStream(testData))) {
+                ulong n0 = testReader.DecodeUInt64();
+                ulong n1 = testReader.DecodeUInt64();
+                ulong n2 = testReader.DecodeUInt64();
+                ulong n3 = testReader.DecodeUInt64();
+                ulong n4 = testReader.DecodeUInt64();
+                ulong n5 = testReader.DecodeUInt64();
+                ulong n6 = testReader.DecodeUInt64();
+
+                if (n0 != 0) {
+                    Debug.Log("Wanted to read 0. Read: " + n0);
+                }
+                if (n1 != 64) {
+                    Debug.Log("Wanted to read 64. Read: " + n1);
+                }
+                if (n2 != 127) {
+                    Debug.Log("Wanted to read 127. Read: " + n2);
+                }
+                if (n3 != 128) {
+                    Debug.Log("Wanted to read 128. Read: " + n3);
+                }
+                if (n4 != 8192) {
+                    Debug.Log("Wanted to read 8192. Read: " + n4);
+                }
+                if (n5 != 16383) {
+                    Debug.Log("Wanted to read 16383. Read: " + n5);
+                }
+                if (n6 != 16384) {
+                    Debug.Log("Wanted to read 16384. Read: " + n6);
+                }
+            }
+            */
