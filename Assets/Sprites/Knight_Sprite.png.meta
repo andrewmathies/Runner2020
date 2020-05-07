@@ -39,7 +39,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -53,7 +53,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -70,7 +70,7 @@ TextureImporter:
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -81,7 +81,7 @@ TextureImporter:
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -92,7 +92,7 @@ TextureImporter:
     buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -106,18 +106,18 @@ TextureImporter:
       name: Knight_Sprite_0
       rect:
         serializedVersion: 2
-        x: 12
-        y: 3
-        width: 10
-        height: 25
+        x: 0
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f7d513ec8dcd4e44baa5bb85338883d2
+      spriteID: a13cc64ceb0b76e45875ffe8a3554f14
       vertices: []
       indices: 
       edges: []
@@ -126,18 +126,18 @@ TextureImporter:
       name: Knight_Sprite_1
       rect:
         serializedVersion: 2
-        x: 42
-        y: 3
-        width: 14
-        height: 25
+        x: 32
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a9cd6ac066043164d82af4ea34fb3f32
+      spriteID: 74eefd42d23e2ae4b9d8fcff48c16d16
       vertices: []
       indices: 
       edges: []
@@ -146,18 +146,18 @@ TextureImporter:
       name: Knight_Sprite_2
       rect:
         serializedVersion: 2
-        x: 73
-        y: 3
-        width: 13
-        height: 25
+        x: 64
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ae60036f229bffe459f299097fd2bf7d
+      spriteID: 606d4f4265ecf9a44b08bbbcdea5820b
       vertices: []
       indices: 
       edges: []
@@ -166,18 +166,18 @@ TextureImporter:
       name: Knight_Sprite_3
       rect:
         serializedVersion: 2
-        x: 105
-        y: 3
-        width: 14
-        height: 25
+        x: 96
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c5b018e540cf1b045bea9ad2f2fb636d
+      spriteID: 1ba23f8709a9c0848883b620b6941fc5
       vertices: []
       indices: 
       edges: []
@@ -186,18 +186,18 @@ TextureImporter:
       name: Knight_Sprite_4
       rect:
         serializedVersion: 2
-        x: 138
-        y: 3
-        width: 12
-        height: 25
+        x: 128
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 181e01fe276b2b24fa172bdc0c878c5e
+      spriteID: 88d5ac6330253ba4b89aa7b32826c458
       vertices: []
       indices: 
       edges: []
@@ -206,18 +206,18 @@ TextureImporter:
       name: Knight_Sprite_5
       rect:
         serializedVersion: 2
-        x: 171
-        y: 3
-        width: 11
-        height: 25
+        x: 160
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2c7ffe2ec06d4b84a9861b55d92b99a2
+      spriteID: ec3e1f4d65b73c1428e0985dd4b33a4a
       vertices: []
       indices: 
       edges: []
@@ -226,18 +226,18 @@ TextureImporter:
       name: Knight_Sprite_6
       rect:
         serializedVersion: 2
-        x: 198
-        y: 3
-        width: 21
-        height: 25
+        x: 192
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f122a20dec5c5d64a951b142caeb3b3c
+      spriteID: 6acc54d399570f94cba5f7eaf0353571
       vertices: []
       indices: 
       edges: []
@@ -246,18 +246,18 @@ TextureImporter:
       name: Knight_Sprite_7
       rect:
         serializedVersion: 2
-        x: 231
-        y: 3
-        width: 19
-        height: 25
+        x: 224
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f640eb52911f9324c8554a1d1cfad23d
+      spriteID: 89cd5f5ef7d0c4740b01831f49859885
       vertices: []
       indices: 
       edges: []
