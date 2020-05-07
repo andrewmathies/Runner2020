@@ -1,8 +1,6 @@
 {
-    "name": "DataAssembly",
-    "references": [
-        "Analytics"
-    ],
+    "name": "MidiAssembly",
+    "references": [],
     "optionalUnityReferences": [],
     "includePlatforms": [
         "Android",

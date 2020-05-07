@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-using Data;
-
 namespace Obstacle {
     public class Obstacle : MonoBehaviour {
         public float Speed;
@@ -11,14 +9,12 @@ namespace Obstacle {
 
         private float edgeOfScreen = -12f;
         private SpriteRenderer sr;
-        private DataStore dataStore;
         private ObstacleManager obstacleManager;
 
         // create a sprite renderer component, get reference to global data store, get reference to obstacle manager
         void Awake()
         {
             sr = gameObject.AddComponent<SpriteRenderer>() as SpriteRenderer;
-            dataStore = DataStore.Instance;
             obstacleManager = GameObject.FindObjectOfType(typeof(ObstacleManager)) as ObstacleManager;
         }
 
@@ -26,7 +22,7 @@ namespace Obstacle {
         public void Init(ObstacleType t) {
             Type = t;
 
-            Dictionary<ObstacleType, Texture2D> obstacleTextureMap = dataStore.ObstacleTextures;
+            Dictionary<ObstacleType, Texture2D> obstacleTextureMap = obstacleManager.ObstacleTextures;
             
             Texture2D texture = obstacleTextureMap[t];
             Debug.Log(texture);

@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-using Data;
-
 namespace Obstacle {
     public class ObstacleManager : MonoBehaviour {
         public GameObject player;
         public GameObject obstaclePrefab;
         public Vector3 newObstaclePosition = new Vector3(12, 0, 0);
         public Transform obstacleContainer;
+        public Dictionary<ObstacleType, Texture2D> ObstacleTextures;
 
         // if we decide an enum is appropriate for difficulty selection, we can make this public and extend editor UI to
         // use correct enum types in inspector. reference comment by aqibsadiq
@@ -25,9 +24,18 @@ namespace Obstacle {
         {
             numberGenerator = new System.Random();
             difficulty = Difficulty.Easy;
+            rules = new AdjacencyRules();
+        
+            // load textures for obstacles
+            Texture2D blackTexture = Resources.Load<Texture2D>("Textures/black");
+            Texture2D blueTexture = Resources.Load<Texture2D>("Textures/blue");
+            Texture2D greenTexture = Resources.Load<Texture2D>("Textures/green");
 
-            DataStore datastore = DataStore.Instance;
-            rules = datastore.Rules;
+            ObstacleTextures = new Dictionary<ObstacleType, Texture2D>();
+
+            ObstacleTextures.Add(ObstacleType.Black, blackTexture);
+            ObstacleTextures.Add(ObstacleType.Blue, blueTexture);
+            ObstacleTextures.Add(ObstacleType.Green, greenTexture);
         }
 
         // return a randomly selected obstacle type (or null which means no obstacle). right now probability

@@ -1,4 +1,4 @@
-namespace Data {
+namespace Obstacle {
     public enum ObstacleType {
         Blue,
         Green,

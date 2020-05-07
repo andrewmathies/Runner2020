@@ -6,7 +6,6 @@ using UnityEditor;
 using UnityEngine.TestTools;
 
 using Obstacle;
-using Data;
 
 namespace Tests
 {

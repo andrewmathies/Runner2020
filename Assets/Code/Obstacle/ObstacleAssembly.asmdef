@@ -1,8 +1,6 @@
 {
-    "name": "ScriptsAssembly",
-    "references": [
-        "DataAssembly"
-    ],
+    "name": "ObstacleAssembly",
+    "references": [],
     "optionalUnityReferences": [],
     "includePlatforms": [
         "Android",

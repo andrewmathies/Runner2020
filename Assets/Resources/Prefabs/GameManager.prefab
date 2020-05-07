@@ -46,5 +46,5 @@ MonoBehaviour:
   player: {fileID: 0}
   obstaclePrefab: {fileID: 1983875047703190574, guid: f342748bfe0cbb849b6fa53dbf923a33,
     type: 3}
-  newObstaclePosition: {x: 12, y: 0, z: 0}
+  newObstaclePosition: {x: 12, y: 13, z: 0}
   obstacleContainer: {fileID: 0}

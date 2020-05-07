@@ -1,11 +1,9 @@
 {
-    "name": "Tests",
+    "name": "PlayerAssembly",
     "references": [
         "ObstacleAssembly"
     ],
-    "optionalUnityReferences": [
-        "TestAssemblies"
-    ],
+    "optionalUnityReferences": [],
     "includePlatforms": [
         "Android",
         "Editor"

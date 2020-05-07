@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 
-namespace Data {
+namespace Obstacle {
     public class AdjacencyRules {
         private Dictionary<string, int> rules;
 
