@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+using Midi;
+
 namespace Obstacle {
     public class ObstacleManager : MonoBehaviour {
-        public GameObject player;
         public GameObject obstaclePrefab;
-        public Vector3 newObstaclePosition = new Vector3(12, 0, 0);
-        public Transform obstacleContainer;
+        public Vector3 newObstaclePosition;
         public Dictionary<ObstacleType, Texture2D> ObstacleTextures;
 
         // if we decide an enum is appropriate for difficulty selection, we can make this public and extend editor UI to
@@ -18,6 +18,9 @@ namespace Obstacle {
         private AdjacencyRules rules;
         private System.Random numberGenerator;
         private Queue<Obstacle> obstacles = new Queue<Obstacle>();
+        private GameObject obstacleContainer;
+        
+        private MidiParser parser;
 
         // Start is called before the first frame update
         void Start()
@@ -25,7 +28,9 @@ namespace Obstacle {
             numberGenerator = new System.Random();
             difficulty = Difficulty.Easy;
             rules = new AdjacencyRules();
-        
+            obstacleContainer = new GameObject("Obstacle Container");
+            parser = gameObject.GetComponent<MidiParser>();
+
             // load textures for obstacles
             Texture2D blackTexture = Resources.Load<Texture2D>("Textures/black");
             Texture2D blueTexture = Resources.Load<Texture2D>("Textures/blue");
@@ -36,12 +41,14 @@ namespace Obstacle {
             ObstacleTextures.Add(ObstacleType.Black, blackTexture);
             ObstacleTextures.Add(ObstacleType.Blue, blueTexture);
             ObstacleTextures.Add(ObstacleType.Green, greenTexture);
+
+            StartCoroutine(MidiReader());
         }
 
         // return a randomly selected obstacle type (or null which means no obstacle). right now probability
         // that a particular type is generated is decided by difficulty enum. should this be a number that slowly
         // ramps up? should chance to generate one type change if one or more types are not in the options?
-        private ObstacleType? obstacleDecider(Difficulty difficulty, List<ObstacleType> options) {
+        private ObstacleType obstacleDecider(Difficulty difficulty, List<ObstacleType> options) {
             float chanceOfEachObstacle;
 
             switch (difficulty) {
@@ -65,8 +72,8 @@ namespace Obstacle {
                 }
             }
 
-            // in this case, do not generate an obstacle
-            return null;
+            // for now just default to black
+            return ObstacleType.Black;
         }
 
         // returns distances to the closest obstacle of each type in cells
@@ -86,7 +93,7 @@ namespace Obstacle {
                 
                 Vector3Int curObstacleCellPosition = grid.WorldToCell(obstacle.transform.position);
                 int cellDist = (int) Math.Abs(newObstacleCellPosition.x - curObstacleCellPosition.x);
-                distances.Add(type, cellDist);
+                distances[type] = cellDist;
             }
 
             return distances;
@@ -95,32 +102,78 @@ namespace Obstacle {
         // returns a new game object to be placed in the scene as a new obstacle
         // create it under the obstaclecontainer in the scene hierarchy
         public Obstacle createObstacle(ObstacleType type) {
-            GameObject newObstacleGameObject = Instantiate(obstaclePrefab, newObstaclePosition, Quaternion.identity, obstacleContainer);
+            GameObject newObstacleGameObject = Instantiate(obstaclePrefab, newObstaclePosition, Quaternion.identity, obstacleContainer.transform);
             Obstacle newObstacle = newObstacleGameObject.GetComponent<Obstacle>();
             newObstacle.Init(type);
-
-            Debug.Log("Enqueueing a new obstacle: " + newObstacle.Type);
-            obstacles.Enqueue(newObstacle);
 
             return newObstacle;
         }
 
-        // this is called by the player every time it "runs the length of a new cell"
-        public void NextCell() {
-            Dictionary<ObstacleType, int> distances = calculateDistances();
-            List<ObstacleType> potentialObstacles = rules.Apply(distances);
-            ObstacleType? obstacle = obstacleDecider(difficulty, potentialObstacles);
-
-            if (obstacle is ObstacleType newObstacleType) {
-                Obstacle newObstacle = createObstacle(newObstacleType);
-            }
-        }
-
-        // Remove the oldest obstacle from our queue
-        // Are we going to have obstacles that move at different speeds? if so then we can't just blindly assume
-        // the oldest thing in the queue is what we need to delete. TODO: change queue to dict with unique ids for each obstacle
         public void RemoveObstacle() {
             obstacles.Dequeue();
+        }
+
+        private IEnumerator MidiReader() {
+            // wait for the queue to have something in it if this starts first
+            while (parser.Tracks.Count == 0) {
+                yield return null;    
+            }
+
+            Track metaTrack = parser.Tracks[0];
+            Track melodyTrack = parser.Tracks[1];
+            bool generate = false;
+            uint microSecondsPerQuarterNote = 0;
+            ushort ticksPerQuarterNote = 0;
+
+            if (!parser.TimeBasedDivision) {
+                ticksPerQuarterNote = parser.TimeDivision;
+            } else {
+                Debug.Log("this midi files uses a rare/strange way to encode timing of events");
+                yield break;
+            }
+
+            // TODO: currently this blocks forever if there is no set tempo meta event. that is bad
+            while (true) {
+                 Midi.Event e = metaTrack.Events.Dequeue();
+                 if (e.GetType() == typeof(Midi.MetaEvent)) {
+                     MetaEvent metaEvent = (MetaEvent) e;
+                     if (metaEvent.Type == MetaEventType.SetTempo) {
+                         microSecondsPerQuarterNote = metaEvent.MicroSecondsPerQuarterNote;
+                         break;
+                     }
+                 }
+            }
+
+            // this loop reads through every event in the Track and sleeps the appropriate amount of time between each
+            while (melodyTrack.Events.Count > 0) {
+                // read event
+                Midi.Event e = melodyTrack.Events.Dequeue();
+
+                if (e.GetType() == typeof(Midi.MidiEvent)) {
+                    MidiEvent midiEvent = (MidiEvent) e;
+
+                    if (midiEvent.Type == MidiEventType.NoteOn) {
+                        generate = true;
+                    }
+                }
+
+                // create a new obstacle if it was a note on event
+                if (generate) {
+                    Dictionary<ObstacleType, int> distances = calculateDistances();
+                    List<ObstacleType> potentialObstacles = rules.Apply(distances);
+                    ObstacleType newObstacleType = obstacleDecider(difficulty, potentialObstacles);
+                    Obstacle newObstacle = createObstacle(newObstacleType);
+                    obstacles.Enqueue(newObstacle);
+                    generate = false;
+                }
+                
+                // wait event delta time
+                float sleepTime = Convert.ToSingle(e.Delta) * (Convert.ToSingle(microSecondsPerQuarterNote) / 1000000f) / Convert.ToSingle(ticksPerQuarterNote);
+                //Debug.Log("Sleeping for " + sleepTime + " seconds");
+                yield return new WaitForSeconds(sleepTime);
+            }
+
+            Debug.Log("No more events to parse! level is finished");
         }
     }
 }

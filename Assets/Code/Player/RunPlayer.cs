@@ -28,7 +28,7 @@ namespace Player {
 
             if (sim > CellWidth) {
                 //Debug.Log("Player ran the length of a cell");
-                obstacleManager.NextCell();
+                //obstacleManager.NextCell();
                 sim = 0;
             }
         }

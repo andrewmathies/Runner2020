@@ -1,6 +1,8 @@
 {
     "name": "ObstacleAssembly",
-    "references": [],
+    "references": [
+        "Midi"
+    ],
     "optionalUnityReferences": [],
     "includePlatforms": [
         "Android",

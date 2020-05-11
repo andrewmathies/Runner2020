@@ -25,7 +25,7 @@ namespace Obstacle {
             Dictionary<ObstacleType, Texture2D> obstacleTextureMap = obstacleManager.ObstacleTextures;
             
             Texture2D texture = obstacleTextureMap[t];
-            Debug.Log(texture);
+            //Debug.Log(texture);
             Rect rect = new Rect(0.0f, 0.0f, texture.width, texture.height);
             Vector2 position = new Vector2(0.0f, 0.0f);
             sr.sprite = Sprite.Create(texture, rect, position);

@@ -56,8 +56,8 @@ namespace Tests
         // since this has the Setup attribue, it will run before every test in this file
         [SetUp]
         public void BeforeEveryTest() {
-            GameObject obstacleManagerPrefab = Resources.Load<GameObject>("Prefabs/GameManager");
-            var gameManagerObject = (GameObject) PrefabUtility.InstantiatePrefab(obstacleManagerPrefab);
+            GameObject gameManagerPrefab = Resources.Load<GameObject>("Prefabs/GameManager");
+            var gameManagerObject = (GameObject) PrefabUtility.InstantiatePrefab(gameManagerPrefab);
             obstacleManager = gameManagerObject.GetComponent<ObstacleManager>();
         }
 

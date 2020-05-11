@@ -6,13 +6,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace Midi {
-    public class MidiFile {
-
+    public class MidiParser : MonoBehaviour {
         public ushort Format, TrackCount, TimeDivision;
-
+        public bool TimeBasedDivision;
         public List<Track> Tracks;
 
-        public MidiFile(string path) {
+        public void Start() {
+            Debug.Log("starting to parse midi file");
+            this.Parse("D:\\Programming\\Unity Projects\\Runner2020\\Assets\\Code\\Midi\\test.mid");
+        }
+
+        private void Parse(string path) {
             using (BinaryReader reader = new BinaryReader(File.Open(path, FileMode.Open))) {
                 Chunk headerChunk = new Chunk(reader);
 
@@ -37,6 +41,18 @@ namespace Midi {
                 Buffer.BlockCopy(headerChunk.Data, 4, buffer, 0, 2);
                 Array.Reverse(buffer);
                 TimeDivision = BitConverter.ToUInt16(buffer, 0);
+
+                BitArray timeDivisionBits = new BitArray(buffer);
+                TimeBasedDivision = timeDivisionBits[0];
+
+                if (TimeBasedDivision) {
+                    Debug.Log("negativee SMPTE format");
+                } else {
+                    Debug.Log("ticks per quarter note");
+                }
+
+                //Debug.Log(TimeDivision);
+                //Utility.PrintBits(buffer);
 
                 //Debug.Log("Successfully read header chunk");
                 //Debug.Log("Track count is: " + TrackCount);

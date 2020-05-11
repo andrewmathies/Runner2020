@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Midi {
     public class Track {
-        public List<Event> Events = new List<Event>();
+        public Queue<Event> Events = new Queue<Event>();
 
         public Track(Chunk chunk) {
             if (chunk.Type != "MTrk") {
@@ -46,7 +46,7 @@ namespace Midi {
 
                     newEvent.Delta = delta;
                     //Debug.Log("created new event: " + newEvent);
-                    Events.Add(newEvent);
+                    Events.Enqueue(newEvent);
                 }
             }
 

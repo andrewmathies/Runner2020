@@ -15,14 +15,10 @@ The data our game needs for a level is a set of one midi file and one audio file
     - animator with running and jumping animations
     - jump script with Mario physics
 - gamemanager
-    - whatever name Darin is using manager. place new background/floor objects into the scene at some interval 
-    - Midi parser. begin parsing the midi file for the specified song
-    - ObstacleManager. using a lock with audio manager, begin reading Events from the Queue in Midi Parser script.
-        Generate an Obstacle if event is of correct type, sleep the delta time of the event, then read another event.
-        If Queue is empty, call function on Darin's script to
-            1. stop generating new background objects
-            2. call function on each existing background object to stop moving 
-    - audio manager. using a lock with ObstacleManager,  begin playing song for level
+    - Moving object manager. (Darin) place new background/floor objects into the scene at some interval 
+    - Midi parser. begin parsing the midi file
+    - ObstacleManager. using a lock with audio manager, begin reading Midi data and placing obstacles
+    - audio manager. using a lock with ObstacleManager,  begin playing audio for level
 
 
 all songs must have at least one good Midi track.
@@ -38,3 +34,14 @@ Can we figure that out just from the frequency of note on events in a given span
 make a level like https://www.youtube.com/watch?v=CKA1zCwcYBE
 - pretty harmony
 - slow/simple rhythms
+
+===========================
+L = some number of frames before the player hits an obstacle where the player can jump
+
+L must be constant in a song. Should it be constant across all songs? I just worry about some future song that is fast.
+if the time between any two note On events in a song is greater than L, then we can't use that level
+
+so we want something to check if a midi file is a valid level
+
+when player hits jump button, change animation and state to jump for L frames
+while in jump state, user cannot collide with an obstacle

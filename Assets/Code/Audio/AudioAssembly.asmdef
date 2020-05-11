@@ -1,12 +1,7 @@
 {
-    "name": "Tests",
-    "references": [
-        "ObstacleAssembly",
-        "AudioAssembly"
-    ],
-    "optionalUnityReferences": [
-        "TestAssemblies"
-    ],
+    "name": "AudioAssembly",
+    "references": [],
+    "optionalUnityReferences": [],
     "includePlatforms": [
         "Android",
         "Editor"
