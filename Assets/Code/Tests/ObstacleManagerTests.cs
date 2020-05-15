@@ -27,7 +27,7 @@ namespace Tests
             objectsWithObstacleTag = GameObject.FindGameObjectsWithTag("Obstacle");
             Assert.IsEmpty(objectsWithObstacleTag);
         }
-
+/*
         [UnityTest]
         public IEnumerator Obstacle_Manager_Can_Calculate_Distances() {
             GameObject gridPrefab = Resources.Load<GameObject>("Prefabs/Grid");
@@ -51,8 +51,7 @@ namespace Tests
             
             Assert.That(distances[ObstacleType.Green] > 0);
         }
-
-
+*/
         // since this has the Setup attribue, it will run before every test in this file
         [SetUp]
         public void BeforeEveryTest() {

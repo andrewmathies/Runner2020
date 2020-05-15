@@ -1,7 +1,8 @@
 {
     "name": "PlayerAssembly",
     "references": [
-        "ObstacleAssembly"
+        "ObstacleAssembly",
+        "AudioAssembly"
     ],
     "optionalUnityReferences": [],
     "includePlatforms": [

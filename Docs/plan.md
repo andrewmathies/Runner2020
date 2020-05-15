@@ -45,3 +45,9 @@ so we want something to check if a midi file is a valid level
 
 when player hits jump button, change animation and state to jump for L frames
 while in jump state, user cannot collide with an obstacle
+===========================
+
+there is a delay between when a note is played in the audio file and when the obstacle associated with that note hits the player.
+when the game starts, the obstacles and notes match up well enough, but as time goes on the delay gets worse and worse.
+
+so, the obstacle generator is sleeping slightly more than it should each time
