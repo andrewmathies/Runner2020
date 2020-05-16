@@ -15,7 +15,7 @@ namespace Tests
         
         [UnityTest]
         public IEnumerator Obstacle_Manager_Can_Create_And_Destroy_Obstacles() {
-            obstacleManager.createObstacle(ObstacleType.Blue);
+            obstacleManager.CreateObstacle(ObstacleType.Blue);
             GameObject[] objectsWithObstacleTag = GameObject.FindGameObjectsWithTag("Obstacle");
 
             Assert.That(objectsWithObstacleTag, Has.Property("Length").EqualTo(1));

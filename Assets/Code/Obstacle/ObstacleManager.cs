@@ -13,105 +13,33 @@ namespace Obstacle {
         public Vector3 newObstaclePosition;
         public Dictionary<ObstacleType, Texture2D> ObstacleTextures;
 
-        // if we decide an enum is appropriate for difficulty selection, we can make this public and extend editor UI to
-        // use correct enum types in inspector. reference comment by aqibsadiq
-        // at https://forum.unity.com/threads/multiple-enum-select-from-inspector.184729/
-        private Difficulty difficulty;
-        private AdjacencyRules rules;
-        private System.Random numberGenerator;
         private Queue<Obstacle> obstacles = new Queue<Obstacle>();
         private GameObject obstacleContainer;
-        
-        private MidiParser parser;
 
-        // Start is called before the first frame update
         void Start()
-        {
-            numberGenerator = new System.Random();
-            difficulty = Difficulty.Easy;
-            rules = new AdjacencyRules();
+        {   
             obstacleContainer = new GameObject("Obstacle Container");
-            parser = gameObject.GetComponent<MidiParser>();
+            LoadObstacleTextures();
 
+            MidiParser parser = gameObject.GetComponent<MidiParser>();
+            StartCoroutine(MidiReader(parser));
+        }
+
+        private void LoadObstacleTextures() {
             // load textures for obstacles
-            //Texture2D blackTexture = Resources.Load<Texture2D>("Textures/black");
-            //Texture2D blueTexture = Resources.Load<Texture2D>("Textures/blue");
-            //Texture2D greenTexture = Resources.Load<Texture2D>("Textures/green");
             Texture2D beholderTexture = Resources.Load<Texture2D>("Textures/black");
             // this is an empty texture
             Texture2D signalTexture = new Texture2D(2, 2);
 
             ObstacleTextures = new Dictionary<ObstacleType, Texture2D>();
 
-            //ObstacleTextures.Add(ObstacleType.Black, blackTexture);
-            //ObstacleTextures.Add(ObstacleType.Blue, blueTexture);
-            //ObstacleTextures.Add(ObstacleType.Green, greenTexture);
             ObstacleTextures.Add(ObstacleType.Beholder, beholderTexture);
             ObstacleTextures.Add(ObstacleType.Signal, signalTexture);
-
-            StartCoroutine(MidiReader());
-        }
-/*
-        // return a randomly selected obstacle type (or null which means no obstacle). right now probability
-        // that a particular type is generated is decided by difficulty enum. should this be a number that slowly
-        // ramps up? should chance to generate one type change if one or more types are not in the options?
-        private ObstacleType obstacleDecider(Difficulty difficulty, List<ObstacleType> options) {
-            float chanceOfEachObstacle;
-
-            switch (difficulty) {
-                case Difficulty.Easy:
-                    chanceOfEachObstacle = .05f;
-                    break;
-                case Difficulty.Medium:
-                    chanceOfEachObstacle = .1f;
-                    break;
-                case Difficulty.Hard:
-                    chanceOfEachObstacle = .15f;
-                    break;
-                default:
-                    throw new System.ArgumentException("Invalid difficulty: " + difficulty);
-            }
-
-            foreach (ObstacleType type in options) {
-                double d = numberGenerator.NextDouble();
-                if (d < chanceOfEachObstacle) {
-                    return type;
-                }
-            }
-
-            // for now just default to black
-            return ObstacleType.Black;
         }
 
-        // returns distances to the closest obstacle of each type in cells
-        public Dictionary<ObstacleType, int> calculateDistances() {
-            Dictionary<ObstacleType, int> distances = new Dictionary<ObstacleType, int>();
-            Grid grid = GameObject.FindObjectOfType(typeof(Grid)) as Grid;
-            Vector3Int newObstacleCellPosition = grid.WorldToCell(newObstaclePosition);
-
-            // iterate through all obstacles in the scene, starting with oldest
-            // i.e. farthest from the right side of the screen
-            foreach (Obstacle obstacle in obstacles) {
-                ObstacleType type = obstacle.Type;
-                
-                if (distances.ContainsKey(type)) {
-                    distances.Remove(type);
-                }
-                
-                Vector3Int curObstacleCellPosition = grid.WorldToCell(obstacle.transform.position);
-                int cellDist = (int) Math.Abs(newObstacleCellPosition.x - curObstacleCellPosition.x);
-                distances[type] = cellDist;
-            }
-
-            return distances;
-        }
-*/
         // returns a new game object to be placed in the scene as a new obstacle
         // create it under the obstaclecontainer in the scene hierarchy
-        public Obstacle createObstacle(ObstacleType type) {
-            //Dictionary<ObstacleType, int> distances = calculateDistances();
-            //List<ObstacleType> potentialObstacles = rules.Apply(distances);
-            //ObstacleType newObstacleType = obstacleDecider(difficulty, potentialObstacles);
+        public Obstacle CreateObstacle(ObstacleType type) {
             GameObject newObstacleGameObject = Instantiate(obstaclePrefab, newObstaclePosition, Quaternion.identity, obstacleContainer.transform);
             Obstacle newObstacle = newObstacleGameObject.GetComponent<Obstacle>();
             newObstacle.Init(type);
@@ -123,15 +51,19 @@ namespace Obstacle {
             obstacles.Dequeue();
         }
 
-        private IEnumerator MidiReader() {
+        public void SendSignalObstacle() {
+            // send an invisible obstacle indicating that the song has started
+            Obstacle startObstacle = CreateObstacle(ObstacleType.Signal);
+            obstacles.Enqueue(startObstacle);
+        }
+
+        private IEnumerator MidiReader(MidiParser parser) {
             // wait for the queue to have something in it if this starts first
             while (parser.Tracks.Count == 0) {
                 yield return null;    
             }
 
-            // send an invisible obstacle indicating that the song has started
-            Obstacle startObstacle = createObstacle(ObstacleType.Signal);
-            obstacles.Enqueue(startObstacle);
+            SendSignalObstacle();
             // AIVA adds half a second of silence to the beginning of the audio files to avoid clipping
             yield return new WaitForSeconds(0.5f);
 
@@ -178,7 +110,7 @@ namespace Obstacle {
 
                 // create a new obstacle if it was a note on event
                 if (generate) {
-                    Obstacle newObstacle = createObstacle(ObstacleType.Beholder);
+                    Obstacle newObstacle = CreateObstacle(ObstacleType.Beholder);
                     obstacles.Enqueue(newObstacle);
                     generate = false;
                 }
