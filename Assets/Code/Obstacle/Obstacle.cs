@@ -31,7 +31,7 @@ namespace Obstacle {
             // change sorting layer. if this string is not a sorting layer, sets to default sorting layer
             sr.sortingLayerName = "Obstacles";
         }
-
+/*
         // If we hit the left edge of the screen, delete this obstacle. otherwise keep moving move left
         void Update()
         {
@@ -43,5 +43,6 @@ namespace Obstacle {
 
             transform.Translate(Vector3.left * Speed * Time.deltaTime);
         }
+        */
     }
 }
