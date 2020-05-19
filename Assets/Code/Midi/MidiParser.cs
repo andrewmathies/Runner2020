@@ -13,7 +13,7 @@ namespace Midi {
 
         public void Start() {
             Debug.Log("starting to parse midi file");
-            this.Parse("D:\\Programming\\Unity Projects\\Runner2020\\Assets\\Code\\Midi\\test.mid");
+            this.Parse(".\\Assets\\Code\\Midi\\test.mid");
         }
 
         private void Parse(string path) {

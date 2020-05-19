@@ -28,31 +28,6 @@ namespace Tests
             Assert.IsEmpty(objectsWithObstacleTag);
         }
 
-        [UnityTest]
-        public IEnumerator Obstacle_Manager_Can_Calculate_Distances() {
-            GameObject gridPrefab = Resources.Load<GameObject>("Prefabs/Grid");
-            var gridObject = (GameObject) PrefabUtility.InstantiatePrefab(gridPrefab);
-
-            var distances = obstacleManager.calculateDistances();
-
-            Assert.IsEmpty(distances);
-
-            obstacleManager.createObstacle(ObstacleType.Green);
-
-            // wait 5 seconds
-            yield return new WaitForSeconds(5);
-
-            // checking that obstacle moved in 5 seconds
-            distances = obstacleManager.calculateDistances();
-            
-            //foreach (KeyValuePair<ObstacleType, int> entry in distances) {
-            //    Debug.Log(entry.Key + " " + entry.Value);
-            //}
-            
-            Assert.That(distances[ObstacleType.Green] > 0);
-        }
-
-
         // since this has the Setup attribue, it will run before every test in this file
         [SetUp]
         public void BeforeEveryTest() {

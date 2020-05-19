@@ -76,29 +76,6 @@ namespace Obstacle {
             return ObstacleType.Black;
         }
 
-        // returns distances to the closest obstacle of each type in cells
-        public Dictionary<ObstacleType, int> calculateDistances() {
-            Dictionary<ObstacleType, int> distances = new Dictionary<ObstacleType, int>();
-            Grid grid = GameObject.FindObjectOfType(typeof(Grid)) as Grid;
-            Vector3Int newObstacleCellPosition = grid.WorldToCell(newObstaclePosition);
-
-            // iterate through all obstacles in the scene, starting with oldest
-            // i.e. farthest from the right side of the screen
-            foreach (Obstacle obstacle in obstacles) {
-                ObstacleType type = obstacle.Type;
-                
-                if (distances.ContainsKey(type)) {
-                    distances.Remove(type);
-                }
-                
-                Vector3Int curObstacleCellPosition = grid.WorldToCell(obstacle.transform.position);
-                int cellDist = (int) Math.Abs(newObstacleCellPosition.x - curObstacleCellPosition.x);
-                distances[type] = cellDist;
-            }
-
-            return distances;
-        }
-
         // returns a new game object to be placed in the scene as a new obstacle
         // create it under the obstaclecontainer in the scene hierarchy
         public Obstacle createObstacle(ObstacleType type) {
@@ -159,7 +136,7 @@ namespace Obstacle {
 
                 // create a new obstacle if it was a note on event
                 if (generate) {
-                    Dictionary<ObstacleType, int> distances = calculateDistances();
+                    Dictionary<ObstacleType, int> distances = new Dictionary<ObstacleType, int>();
                     List<ObstacleType> potentialObstacles = rules.Apply(distances);
                     ObstacleType newObstacleType = obstacleDecider(difficulty, potentialObstacles);
                     Obstacle newObstacle = createObstacle(newObstacleType);
