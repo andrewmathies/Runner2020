@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8315194157572926250}
+  - component: {fileID: 8315194156384106769}
   - component: {fileID: 8315194157572926249}
   - component: {fileID: 1930116696}
-  - component: {fileID: 8315194156384106769}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -33,6 +33,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8315194156384106769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8315194157572926251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 113883181a09cf548bd737a4ee91e459, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Format: 0
+  TrackCount: 0
+  TimeDivision: 0
+  TimeBasedDivision: 0
+  SecondsPerTick: 0
 --- !u!114 &8315194157572926249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47,7 +64,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obstaclePrefab: {fileID: 1983875047703190574, guid: f342748bfe0cbb849b6fa53dbf923a33,
     type: 3}
-  newObstaclePosition: {x: 12, y: 13, z: 0}
+  player: {fileID: 0}
 --- !u!114 &1930116696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66,19 +83,3 @@ MonoBehaviour:
     Source: {fileID: 0}
     Volume: 0.5
     Pitch: 1
---- !u!114 &8315194156384106769
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8315194157572926251}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 113883181a09cf548bd737a4ee91e459, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Format: 0
-  TrackCount: 0
-  TimeDivision: 0
-  TimeBasedDivision: 0

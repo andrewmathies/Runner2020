@@ -22,7 +22,11 @@ namespace Obstacle {
             LoadObstacleTextures();
 
             MidiParser parser = gameObject.GetComponent<MidiParser>();
+/*
+            while (parser == null) {}
 
+            while (parser.Tracks == null) {}
+*/
             // wait for the queue to have something in it to avoid race conditions
             while (parser.Tracks.Count == 0) {}
 
