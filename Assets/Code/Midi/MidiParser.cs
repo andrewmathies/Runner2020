@@ -10,10 +10,12 @@ namespace Midi {
         public ushort Format, TrackCount, TimeDivision;
         public bool TimeBasedDivision;
         public List<Track> Tracks;
+        public float SecondsPerTick;
 
         public void Start() {
             Debug.Log("starting to parse midi file");
             this.Parse("D:\\Programming\\Unity Projects\\Runner2020\\Assets\\Code\\Midi\\test.mid");
+            this.SecondsPerTick = this.CalculateSecondsPerTick();
         }
 
         private void Parse(string path) {
@@ -51,12 +53,6 @@ namespace Midi {
                     Debug.Log("ticks per quarter note");
                 }
 
-                //Debug.Log(TimeDivision);
-                //Utility.PrintBits(buffer);
-
-                //Debug.Log("Successfully read header chunk");
-                //Debug.Log("Track count is: " + TrackCount);
-
                 Tracks = new List<Track>();
 
                 for (ushort i = 0; i < TrackCount; i++) {
@@ -68,6 +64,36 @@ namespace Midi {
                     Debug.Log("Finished parsing midi file");
                 }
             }
+        }
+
+        private float CalculateSecondsPerTick() {
+            Track metaTrack = this.Tracks[0];
+
+            uint microSecondsPerQuarterNote = 0;
+            ushort ticksPerQuarterNote = 0;
+
+            if (!this.TimeBasedDivision) {
+                ticksPerQuarterNote = this.TimeDivision;
+            } else {
+                throw new System.Exception("this midi files uses a rare/strange way to encode timing of events");
+            }
+
+            while (true) {
+                if (metaTrack.Events.Count == 0) {
+                    throw new System.Exception("could not find a set tempo event in first track of midi file");
+                }
+
+                 Midi.Event e = metaTrack.Events.Dequeue();
+                 if (e.GetType() == typeof(Midi.MetaEvent)) {
+                     MetaEvent metaEvent = (MetaEvent) e;
+                     if (metaEvent.Type == MetaEventType.SetTempo) {
+                         microSecondsPerQuarterNote = metaEvent.MicroSecondsPerQuarterNote;
+                         break;
+                     }
+                 }
+            }
+
+            return (Convert.ToSingle(microSecondsPerQuarterNote) / 1000000f) / Convert.ToSingle(ticksPerQuarterNote);
         }
     }
 }

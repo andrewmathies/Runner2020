@@ -1,7 +1,8 @@
 {
     "name": "ObstacleAssembly",
     "references": [
-        "Midi"
+        "Midi",
+        "PlayerAssembly"
     ],
     "optionalUnityReferences": [],
     "includePlatforms": [

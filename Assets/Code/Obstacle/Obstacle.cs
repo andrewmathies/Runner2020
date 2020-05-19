@@ -7,7 +7,7 @@ namespace Obstacle {
         public float Speed;
         public ObstacleType Type;
 
-        private float edgeOfScreen = -12f;
+        //private float edgeOfScreen = -12f;
         private SpriteRenderer sr;
         private ObstacleManager obstacleManager;
 
