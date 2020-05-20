@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-using Obstacle;
+using Obstacles;
 
 namespace Player {
     public class RunPlayer : MonoBehaviour

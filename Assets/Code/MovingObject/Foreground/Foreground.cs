@@ -2,13 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Foreground : MovingObject 
-{   
-    protected float foregroundSpeed = 10f;
+namespace MovingObjects
+{
+    public class Foreground : MovingObject 
+    {   
+        protected float foregroundSpeed = 10f;
 
-    protected override float Speed
-    {
-        get { return foregroundSpeed * baseSpeed; }
+        protected override float Speed
+        {
+            get { return foregroundSpeed * baseSpeed; }
+        }
     }
 }
 

@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-namespace MovingObjectManager {
+namespace MovingObjects 
+{
     public class MovingObjectManager : MonoBehaviour 
     {
         [SerializeField] private GameObject movingObjectPrefab;

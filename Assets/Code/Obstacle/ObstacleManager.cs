@@ -4,8 +4,9 @@ using UnityEngine;
 using System;
 
 using Midi;
+using MovingObjects;
 
-namespace Obstacle {
+namespace Obstacles {
     public class ObstacleManager : MonoBehaviour {
         public GameObject obstaclePrefab;
         public Vector3 newObstaclePosition;

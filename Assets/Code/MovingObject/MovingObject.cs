@@ -2,36 +2,40 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class MovingObject : MonoBehaviour 
+namespace MovingObjects
 {
-    protected float baseSpeed = 1f;
-    protected Rigidbody2D rigidComponent;
-
-    private float leftEdgeOfScreen = -12f;
-
-    //Use a Property for Speed so that child classes can override it
-    protected virtual float Speed
+    public abstract class MovingObject : MonoBehaviour 
     {
-        get { return baseSpeed; }
-    }
+        protected float baseSpeed = 1f;
+        protected Rigidbody2D rigidComponent;
 
-    //Set the Rigidbody2D's velocity component to the desired value to move the object
-    protected void SetVelocity()
-    {
-        rigidComponent = gameObject.GetComponent<Rigidbody2D>();
-        rigidComponent.velocity = Speed*Vector3.left;
-    }
+        private float deletionXValue = -14f;
 
-    void Start()
-    {
-        SetVelocity();
-    }
+        //Use a Property for Speed so that child classes can override it
+        protected virtual float Speed
+        {
+            get { return baseSpeed; }
+        }
 
-    //Delete the MovingObjects after they have passed off the left edge of the screen
-    void Update()
-    {
-        if (transform.position.x <= (leftEdgeOfScreen-2)) {
-            Destroy(gameObject);
+        //Set the Rigidbody2D's velocity component to the desired value to move the object
+        protected void SetVelocity()
+        {
+            rigidComponent = gameObject.GetComponent<Rigidbody2D>();
+            rigidComponent.velocity = Speed*Vector3.left;
+        }
+
+        void Start()
+        {
+            SetVelocity();
+        }
+
+        //Delete the MovingObjects after they have passed off the left edge of the screen
+        void Update()
+        {
+            if (transform.position.x <= (deletionXValue))
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }

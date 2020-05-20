@@ -1,5 +1,7 @@
-namespace Obstacle {
-    public enum ObstacleType {
+namespace Obstacles
+{
+    public enum ObstacleType 
+    {
         Blue,
         Green,
         Black

@@ -2,8 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Obstacle {
-    public class Obstacle : Foreground {
+using Obstacles;
+
+namespace MovingObjects 
+{
+    public class Obstacle : Foreground 
+    {
         public ObstacleType Type;
 
         private SpriteRenderer sr;
@@ -17,7 +21,8 @@ namespace Obstacle {
         }
 
         // set the type of obstacle and sprite accordingly
-        public void Init(ObstacleType t) {
+        public void Init(ObstacleType t) 
+        {
             Type = t;
 
             Dictionary<ObstacleType, Texture2D> obstacleTextureMap = obstacleManager.ObstacleTextures;
