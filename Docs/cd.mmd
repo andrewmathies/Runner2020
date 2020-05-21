@@ -1,41 +1,84 @@
 classDiagram
-    class MidiFile
-    
-    MidiFile : +Header Header
-    MidiFile : +Track[] Tracks
+    class MidiParer{
+        ushort Format
+        ushort TrackCount
+        ushort TimeDivision
+        bool TimeBasedDivision
+        List~Track~ Tracks
+        float SecondsPerTick
 
-    class Chunk{
-        +string Type
-        +uint Length
-        +byte[] Data
-    }
-
-    Chunk <|-- Track
-    Chunk <|-- Header
-
-    class Header{
-        +ushort Format
-        +ushort TrackCount
-        +ushort TimeDivision
+        Parse(String path) void
+        CalculateSecondsPerTick() float
     }
 
     class Track{
-        +Event[] Events
+        Queue~Event~ Events
+        Track(Chunk chunk) Track
+    }
+
+    class Chunk{
+        string Type
+        uint Length
+        byte[] Data
+        Chunk(BinaryReader reader) Chunk
     }
 
     Event <|-- MidiEvent
     Event <|-- MetaEvent
+    Event <|-- SysExEvent
 
     class Event{
-        +ulong deltaTime
+        ulong Delta
+    }
+
+    class MidiEventType {
+        NoteOff
+        NoteOn
+        PolyphonicKeyPressure
+        ControlChange
+        ProgramChange
+        ChannelPressure
+        PitchWheelChange
+        ChannelModeMessage
+        SystemExclusive
+        SongPositionPointer
+        SongSelect
+        TuneRequest
+        EndOfExclusive
+        TimingClock
+        Start
+        Continue
+        Stop
+        ActiveSensing
+        Reset
+    }
+
+    <<enumeration>> MidiEventType
+
+    class MetaEventType {
+        SequenceNumber
+        MidiChannelPrefix
+        EndOfTrack
+        SetTempo
+        SMPTEOffset
+        TimeSignature
+        KeySignature
+        Misc
+    }
+
+    <<enumeration>> MetaEventType
+
+    class MidiEvent{
+        MidiEventType Type
+        MidiEvent(byte commandByte, BinaryReader reader) MidiEvent
     }
 
     class MetaEvent{
-        +int metaType
+        uint MicroSecondsPerQuarterNote
+        MetaEventType Type
+        MetaEvent(BinaryReader reader) MetaEvent
     }
 
-    class MidiEvent{
-        +int pitch
-        +int octave
-        +int eventType
+    class SysExEvent {
+        SysExEvent(BinaryReader reader) SysExEvent
     }
