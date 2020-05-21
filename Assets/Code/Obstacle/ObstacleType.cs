@@ -3,7 +3,6 @@ namespace Obstacle {
         Blue,
         Green,
         Black,
-        Beholder,
-        Signal
+        Beholder
     }
 }

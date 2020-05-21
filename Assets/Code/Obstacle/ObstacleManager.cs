@@ -1,20 +1,22 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
 
 using UnityEngine;
 
 using Midi;
+using Player;
 
 namespace Obstacle {
     public class ObstacleManager : MonoBehaviour {
         public GameObject obstaclePrefab;
-        public Vector3 newObstaclePosition;
+        public GameObject player;
         public Dictionary<ObstacleType, Texture2D> ObstacleTextures;
-
-        private Queue<Obstacle> obstacles = new Queue<Obstacle>();
+        
+        private Queue<GameObject> obstacles = new Queue<GameObject>();
         private GameObject obstacleContainer;
+        private Vector3 newObstaclePosition = new Vector3(20, 13, 0);
+        private float speed = 150f;
 
         void Start()
         {   
@@ -22,111 +24,81 @@ namespace Obstacle {
             LoadObstacleTextures();
 
             MidiParser parser = gameObject.GetComponent<MidiParser>();
-            StartCoroutine(MidiReader(parser));
+
+            if (parser == null) {
+                Debug.Log("MidiParser was not initialized before ObstacleManager");
+                return;
+            }
+
+            // wait for the queue to have something in it to avoid race conditions
+            while (parser.Tracks.Count == 0) {}
+
+            Track melodyTrack = parser.Tracks[1];   
+
+            GenerateObstacles(melodyTrack);
+            StartCoroutine(SendObstacles(melodyTrack, parser.SecondsPerTick));
         }
 
         private void LoadObstacleTextures() {
             // load textures for obstacles
             Texture2D beholderTexture = Resources.Load<Texture2D>("Textures/black");
-            // this is an empty texture
-            Texture2D signalTexture = new Texture2D(2, 2);
 
             ObstacleTextures = new Dictionary<ObstacleType, Texture2D>();
-
             ObstacleTextures.Add(ObstacleType.Beholder, beholderTexture);
-            ObstacleTextures.Add(ObstacleType.Signal, signalTexture);
         }
 
         // returns a new game object to be placed in the scene as a new obstacle
         // create it under the obstaclecontainer in the scene hierarchy
-        public Obstacle CreateObstacle(ObstacleType type) {
-            GameObject newObstacleGameObject = Instantiate(obstaclePrefab, newObstaclePosition, Quaternion.identity, obstacleContainer.transform);
+        public GameObject CreateObstacle(ObstacleType type, Vector3 position) {
+            GameObject newObstacleGameObject = Instantiate(obstaclePrefab, 
+                                                           position,
+                                                           Quaternion.identity,
+                                                           obstacleContainer.transform);
+            
             Obstacle newObstacle = newObstacleGameObject.GetComponent<Obstacle>();
             newObstacle.Init(type);
 
-            return newObstacle;
+            return newObstacleGameObject;
         }
 
-        public void RemoveObstacle() {
-            obstacles.Dequeue();
+        private void GenerateObstacles(Track track) {
+            foreach (Midi.Event e in track.Events.ToArray()) {
+                if (e.GetType() == typeof(Midi.MidiEvent)) {
+                    MidiEvent midiEvent = (MidiEvent) e;
+
+                    // create a new obstacle if it was a note on event
+                    if (midiEvent.Type == MidiEventType.NoteOn) {
+                        GameObject newObstacle = CreateObstacle(ObstacleType.Beholder, newObstaclePosition);
+                        obstacles.Enqueue(newObstacle);
+                    }
+                }
+            }
         }
 
-        public void SendSignalObstacle() {
-            // send an invisible obstacle indicating that the song has started
-            Obstacle startObstacle = CreateObstacle(ObstacleType.Signal);
-            obstacles.Enqueue(startObstacle);
-        }
-
-        private IEnumerator MidiReader(MidiParser parser) {
-            // wait for the queue to have something in it if this starts first
-            while (parser.Tracks.Count == 0) {
-                yield return null;    
-            }
-
-            SendSignalObstacle();
-            // AIVA adds half a second of silence to the beginning of the audio files to avoid clipping
-            yield return new WaitForSeconds(0.5f);
-
-            Track metaTrack = parser.Tracks[0];
-            Track melodyTrack = parser.Tracks[1];
-            bool generate = false;
-            uint microSecondsPerQuarterNote = 0;
-            ushort ticksPerQuarterNote = 0;
-
-            if (!parser.TimeBasedDivision) {
-                ticksPerQuarterNote = parser.TimeDivision;
-            } else {
-                UnityEngine.Debug.Log("this midi files uses a rare/strange way to encode timing of events");
-                yield break;
-            }
-
-            // TODO: currently this blocks forever if there is no set tempo meta event. that is bad
-            while (true) {
-                 Midi.Event e = metaTrack.Events.Dequeue();
-                 if (e.GetType() == typeof(Midi.MetaEvent)) {
-                     MetaEvent metaEvent = (MetaEvent) e;
-                     if (metaEvent.Type == MetaEventType.SetTempo) {
-                         microSecondsPerQuarterNote = metaEvent.MicroSecondsPerQuarterNote;
-                         break;
-                     }
-                 }
-            }
-
-            Stopwatch stopwatch = new Stopwatch();
-            stopwatch.Start();
-
-            // this loop reads through every event in the Track and sleeps the appropriate amount of time between each
-            while (melodyTrack.Events.Count > 0) {
-                // read event
-                Midi.Event e = melodyTrack.Events.Dequeue();
+        private IEnumerator SendObstacles(Track track, float secondsPerTick) {
+            while (track.Events.Count > 0) {
+                // read the next event in this track
+                Midi.Event e = track.Events.Dequeue();
+                float sleepTime = Convert.ToSingle(e.Delta) * secondsPerTick;
 
                 if (e.GetType() == typeof(Midi.MidiEvent)) {
                     MidiEvent midiEvent = (MidiEvent) e;
 
+                    // create a new obstacle if it was a note on event
                     if (midiEvent.Type == MidiEventType.NoteOn) {
-                        generate = true;
+                        if (obstacles.Count == 0) {
+                            Debug.Log("Tried to dequeue an obstacle from an empty queue");
+                            yield break;
+                        }
+
+                        GameObject obstacle = obstacles.Dequeue();
+                        Rigidbody2D rb = obstacle.GetComponent<Rigidbody2D>();
+                        rb.AddForce(Vector2.left * speed);
                     }
                 }
 
-                // create a new obstacle if it was a note on event
-                if (generate) {
-                    Obstacle newObstacle = CreateObstacle(ObstacleType.Beholder);
-                    obstacles.Enqueue(newObstacle);
-                    generate = false;
-                }
-                
-                // wait event delta time
-                float sleepTime = Convert.ToSingle(e.Delta) * (Convert.ToSingle(microSecondsPerQuarterNote) / 1000000f) / Convert.ToSingle(ticksPerQuarterNote);
-                //Debug.Log("Sleeping for " + sleepTime + " seconds");
-                long stopWatchTime = stopwatch.ElapsedMilliseconds;
-                sleepTime -= Convert.ToSingle(stopWatchTime) / 1000f;
-                sleepTime -= 0.01f;
-                //UnityEngine.Debug.Log("stopwatch time: " + time);
                 yield return new WaitForSeconds(sleepTime);
-                stopwatch.Restart();
             }
-
-            UnityEngine.Debug.Log("No more events to parse! level is finished");
         }
     }
 }

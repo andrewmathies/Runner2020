@@ -36,12 +36,9 @@ namespace Obstacle {
         void Update()
         {
             if (transform.position.x <= edgeOfScreen) {
-                obstacleManager.RemoveObstacle();
                 Destroy(gameObject);
                 return;
             }
-
-            transform.Translate(Vector3.left * Speed * Time.deltaTime);
         }
     }
 }
