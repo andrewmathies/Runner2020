@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
 
 using UnityEngine;
 
@@ -22,13 +21,14 @@ namespace Obstacle {
             LoadObstacleTextures();
 
             MidiParser parser = gameObject.GetComponent<MidiParser>();
-/*
-            while (parser == null) {}
 
-            while (parser.Tracks == null) {}
-*/
-            // wait for the queue to have something in it to avoid race conditions
-            while (parser.Tracks.Count == 0) {}
+            if (parser == null) {
+                Debug.LogError("Midi parser was not initialized before obstacle manager");
+                return;
+            }
+
+            // wait for the queues to fill up to avoid race conditions
+            while (parser.Tracks[1].Events.Count == 0) {}
 
             GenerateObstacles(parser.Tracks[1], parser.SecondsPerTick);
         }

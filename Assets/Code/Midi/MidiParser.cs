@@ -12,9 +12,9 @@ namespace Midi {
         public List<Track> Tracks;
         public float SecondsPerTick;
 
-        public void Start() {
+        private void Awake() {
             Debug.Log("starting to parse midi file");
-            this.Parse("D:\\Programming\\Unity Projects\\Runner2020\\Assets\\Code\\Midi\\test.mid");
+            this.Parse(".\\Assets\\Code\\Midi\\test.mid");
             this.SecondsPerTick = this.CalculateSecondsPerTick();
         }
 
