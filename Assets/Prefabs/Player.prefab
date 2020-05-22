@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1638503096586092648}
+  - component: {fileID: 6282094281896430504}
   - component: {fileID: 95950980555873908}
   - component: {fileID: 2029820408}
-  - component: {fileID: 2856390453385308539}
   - component: {fileID: 8606498565816120058}
   - component: {fileID: 2553184747135940059}
   m_Layer: 0
@@ -35,6 +35,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6282094281896430504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6817353038840277480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 817da3ae4559c5044a0e96a87e5945b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioManager: {fileID: 0}
+  Speed: 4
+  Rigidbody: {fileID: 0}
+  Animator: {fileID: 0}
+  FrameCounter: 0
+  EnemiesKilled: 0
+  ObstacleCount: 0
+  HitPoints: 0
+  InitialForce: 0
+  MaxHealth: 3
 --- !u!95 &95950980555873908
 Animator:
   serializedVersion: 3
@@ -102,21 +124,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2856390453385308539
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6817353038840277480}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3e8d96ccdb764c4dba48e5167f5f1c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 95950980555873908}
-  audioManager: {fileID: 0}
-  speed: 150
 --- !u!61 &8606498565816120058
 BoxCollider2D:
   m_ObjectHideFlags: 0

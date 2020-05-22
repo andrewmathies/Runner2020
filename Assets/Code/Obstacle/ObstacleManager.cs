@@ -14,9 +14,11 @@ namespace Obstacle {
         public Dictionary<ObstacleType, Texture2D> ObstacleTextures;
 
         private GameObject obstacleContainer;
+        private PlayerSystem playerSystem;
 
         void Start()
         {   
+            playerSystem = player.GetComponent<PlayerSystem>();
             obstacleContainer = new GameObject("Obstacle Container");
             LoadObstacleTextures();
 
@@ -59,7 +61,8 @@ namespace Obstacle {
             // 0.25 is about half the character model. we want to place obstacles to line up with front of player not center
             float startPosition = player.transform.position.x + 1.5f;
             float timeInSong = 0f;
-            float playerSpeed = Controller.Speed;
+            float playerSpeed = playerSystem.Speed;
+            int obstacleCount = 0;
             
             while (track.Events.Count > 0) {
                 // read the next event in this track, and add the delta time for this event to our counter
@@ -71,11 +74,14 @@ namespace Obstacle {
 
                     // create a new obstacle if it was a note on event
                     if (midiEvent.Type == MidiEventType.NoteOn) {
+                        obstacleCount++;
                         float obstaclePosition = startPosition + timeInSong * playerSpeed;
                         GameObject newObstacle = CreateObstacle(ObstacleType.Beholder, new Vector3(obstaclePosition, 13, 0));
                     }
                 }
             }
+
+            playerSystem.ObstacleCount = obstacleCount;
         }
     }
 }

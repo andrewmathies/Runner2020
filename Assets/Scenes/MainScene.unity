@@ -288,12 +288,18 @@ PrefabInstance:
       propertyPath: InitialForce
       value: 150
       objectReference: {fileID: 0}
+    - target: {fileID: 6282094281896430504, guid: f6b919f3de2b62e42bcf2b29cd8fdab8,
+        type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 1711445213}
     - target: {fileID: 6817353038840277480, guid: f6b919f3de2b62e42bcf2b29cd8fdab8,
         type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2856390453385308539, guid: f6b919f3de2b62e42bcf2b29cd8fdab8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f6b919f3de2b62e42bcf2b29cd8fdab8, type: 3}
 --- !u!4 &1386182121 stripped
 Transform:

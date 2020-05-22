@@ -27,5 +27,16 @@ namespace Audio {
 
             s.Source.Play();
         }
+
+        public void Stop(string name) {
+            Sound s = Array.Find(Sounds, sound => sound.Name == name);
+
+            if (s == null) {
+                Debug.Log("Could not find sound with name: " + name);
+                return;
+            }
+
+            s.Source.Stop();
+        }
     }
 }
