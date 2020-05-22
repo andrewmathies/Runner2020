@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2029820408}
   - component: {fileID: 2856390453385308539}
   - component: {fileID: 8606498565816120058}
+  - component: {fileID: 2553184747135940059}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -124,10 +125,10 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.068333864, y: -0.31275082}
+  m_Offset: {x: 0.06077814, y: -0.31275082}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -138,5 +139,26 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.48227262, y: 1.0006332}
+  m_Size: {x: 0.49738407, y: 1.0006332}
   m_EdgeRadius: 0
+--- !u!50 &2553184747135940059
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6817353038840277480}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 5762593217060993649}
   - component: {fileID: 1832816977324866263}
   - component: {fileID: 6481413941498993341}
-  - component: {fileID: 7614686058134577777}
   m_Layer: 0
   m_Name: Obstacle
   m_TagString: Obstacle
@@ -57,7 +56,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 1.2688899, y: 1.27491}
@@ -73,24 +72,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.4803686, y: 2.4929047}
   m_EdgeRadius: 0
---- !u!50 &7614686058134577777
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1983875047703190574}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0

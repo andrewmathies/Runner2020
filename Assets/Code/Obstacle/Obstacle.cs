@@ -25,7 +25,6 @@ namespace Obstacle {
             Dictionary<ObstacleType, Texture2D> obstacleTextureMap = obstacleManager.ObstacleTextures;
             
             Texture2D texture = obstacleTextureMap[t];
-            //Debug.Log(texture);
             Rect rect = new Rect(0.0f, 0.0f, texture.width, texture.height);
             Vector2 position = new Vector2(0.0f, 0.0f);
             sr.sprite = Sprite.Create(texture, rect, position);
@@ -33,13 +32,13 @@ namespace Obstacle {
             sr.sortingLayerName = "Obstacles";
         }
 
-        // Update is called once per frame
         // If we hit the left edge of the screen, delete this obstacle. otherwise keep moving move left
         void Update()
         {
             if (transform.position.x <= edgeOfScreen) {
                 obstacleManager.RemoveObstacle();
                 Destroy(gameObject);
+                return;
             }
 
             transform.Translate(Vector3.left * Speed * Time.deltaTime);

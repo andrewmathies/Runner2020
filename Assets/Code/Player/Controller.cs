@@ -1,34 +1,28 @@
 using UnityEngine;
 
+using Audio;
+
 namespace Player {
     public class Controller : MonoBehaviour {
         public Animator animator;
 
         private bool running = false;
-        private bool jumping = false;
-        private int jumpCounter = 0;
-        private const int L = 10;
+        private bool songStarted = false;
 
         private void Update() {
             if (Input.GetButtonDown("Run")) {
                 running = !running;
                 animator.SetBool("Run", running);
             }
-
-            if (Input.GetButtonDown("Jump") && !jumping) {
-                jumping = true;
-                jumpCounter = L;
-            } else if (jumping) {
-                jumpCounter--;
-
-                if (jumpCounter == 0) {
-                    jumping = false;
-                }
-            }
         }
 
-        private void OnCollisionEnter(Collision other) {
-            Debug.Log("Hit an obstacle");
+        void OnTriggerEnter2D(Collider2D otherCollider) {
+            //Debug.Log("player hit an obstacle");
+
+            if (!songStarted) {
+                songStarted = true;
+                FindObjectOfType<AudioManager>().Play("AI Song 0");
+            }
         }
     }
 }
