@@ -218,13 +218,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-<<<<<<< HEAD
-  m_LocalPosition: {x: 5.203, y: 4.12, z: -1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-=======
   m_LocalPosition: {x: 0.89, y: 17.05, z: -1}
   m_LocalScale: {x: 10, y: 10, z: 1}
->>>>>>> origin/MovingObjects
   m_Children: []
   m_Father: {fileID: 1386182121}
   m_RootOrder: 0
@@ -343,11 +338,7 @@ PrefabInstance:
     - target: {fileID: 1638503096586092648, guid: f6b919f3de2b62e42bcf2b29cd8fdab8,
         type: 3}
       propertyPath: m_RootOrder
-<<<<<<< HEAD
-      value: 2
-=======
       value: 4
->>>>>>> origin/MovingObjects
       objectReference: {fileID: 0}
     - target: {fileID: 1638503096586092648, guid: f6b919f3de2b62e42bcf2b29cd8fdab8,
         type: 3}
@@ -371,11 +362,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6b919f3de2b62e42bcf2b29cd8fdab8, type: 3}
-<<<<<<< HEAD
---- !u!4 &1386182121 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1638503096586092648, guid: f6b919f3de2b62e42bcf2b29cd8fdab8,
-=======
 --- !u!1 &1602139773 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8315194157572926251, guid: 2c917bceeba70f94da4966985e2a0125,
@@ -404,7 +390,6 @@ MonoBehaviour:
 --- !u!1 &2029820407 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6817353038840277480, guid: f6b919f3de2b62e42bcf2b29cd8fdab8,
->>>>>>> origin/MovingObjects
     type: 3}
   m_PrefabInstance: {fileID: 1056351946}
   m_PrefabAsset: {fileID: 0}
@@ -458,11 +443,7 @@ PrefabInstance:
     - target: {fileID: 8315194157572926250, guid: 2c917bceeba70f94da4966985e2a0125,
         type: 3}
       propertyPath: m_RootOrder
-<<<<<<< HEAD
-      value: 0
-=======
       value: 2
->>>>>>> origin/MovingObjects
       objectReference: {fileID: 0}
     - target: {fileID: 8315194157572926250, guid: 2c917bceeba70f94da4966985e2a0125,
         type: 3}
@@ -531,11 +512,7 @@ PrefabInstance:
     - target: {fileID: 9099495924287727281, guid: ee85ff4ad08edd846bafd7bd72be947f,
         type: 3}
       propertyPath: m_RootOrder
-<<<<<<< HEAD
-      value: 1
-=======
       value: 3
->>>>>>> origin/MovingObjects
       objectReference: {fileID: 0}
     - target: {fileID: 9099495924287727281, guid: ee85ff4ad08edd846bafd7bd72be947f,
         type: 3}

@@ -2,9 +2,9 @@
     "name": "ObstacleAssembly",
     "references": [
         "Midi",
-        "PlayerAssembly"
-        "MovingObjectAssembly",
-        "ForegroundAssembly"
+        "PlayerAssembly",
+        "ForegroundAssembly",
+        "MovingObjectAssembly"
     ],
     "optionalUnityReferences": [],
     "includePlatforms": [
