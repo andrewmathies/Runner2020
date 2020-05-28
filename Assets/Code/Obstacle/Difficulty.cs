@@ -1,4 +1,4 @@
-namespace Obstacle {
+namespace Obstacles {
     public enum Difficulty {
         Easy,
         Medium,

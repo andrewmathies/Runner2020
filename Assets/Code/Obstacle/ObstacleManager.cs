@@ -6,8 +6,9 @@ using UnityEngine;
 
 using Midi;
 using Player;
+using MovingObjects;
 
-namespace Obstacle {
+namespace Obstacles {
     public class ObstacleManager : MonoBehaviour {
         public GameObject obstaclePrefab;
         public GameObject player;
@@ -39,6 +40,7 @@ namespace Obstacle {
             StartCoroutine(SendObstacles(melodyTrack, parser.SecondsPerTick));
         }
 
+<<<<<<< HEAD
         private void LoadObstacleTextures() {
             // load textures for obstacles
             Texture2D beholderTexture = Resources.Load<Texture2D>("Textures/black");
@@ -47,6 +49,8 @@ namespace Obstacle {
             ObstacleTextures.Add(ObstacleType.Beholder, beholderTexture);
         }
 
+=======
+>>>>>>> origin/MovingObjects
         // returns a new game object to be placed in the scene as a new obstacle
         // create it under the obstaclecontainer in the scene hierarchy
         public GameObject CreateObstacle(ObstacleType type, Vector3 position) {
@@ -97,6 +101,22 @@ namespace Obstacle {
                     }
                 }
 
+<<<<<<< HEAD
+=======
+                // create a new obstacle if it was a note on event
+                if (generate) {
+                    Dictionary<ObstacleType, int> distances = new Dictionary<ObstacleType, int>();
+                    List<ObstacleType> potentialObstacles = rules.Apply(distances);
+                    ObstacleType newObstacleType = obstacleDecider(difficulty, potentialObstacles);
+                    Obstacle newObstacle = createObstacle(newObstacleType);
+                    obstacles.Enqueue(newObstacle);
+                    generate = false;
+                }
+                
+                // wait event delta time
+                float sleepTime = Convert.ToSingle(e.Delta) * (Convert.ToSingle(microSecondsPerQuarterNote) / 1000000f) / Convert.ToSingle(ticksPerQuarterNote);
+                //Debug.Log("Sleeping for " + sleepTime + " seconds");
+>>>>>>> origin/MovingObjects
                 yield return new WaitForSeconds(sleepTime);
             }
         }

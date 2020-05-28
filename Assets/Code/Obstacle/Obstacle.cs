@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Obstacle {
-    public class Obstacle : MonoBehaviour {
-        public float Speed;
+using Obstacles;
+
+namespace MovingObjects 
+{
+    public class Obstacle : Foreground 
+    {
         public ObstacleType Type;
 
-        private float edgeOfScreen = -12f;
         private SpriteRenderer sr;
         private ObstacleManager obstacleManager;
 
@@ -19,7 +21,8 @@ namespace Obstacle {
         }
 
         // set the type of obstacle and sprite accordingly
-        public void Init(ObstacleType t) {
+        public void Init(ObstacleType t) 
+        {
             Type = t;
 
             Dictionary<ObstacleType, Texture2D> obstacleTextureMap = obstacleManager.ObstacleTextures;
@@ -30,15 +33,6 @@ namespace Obstacle {
             sr.sprite = Sprite.Create(texture, rect, position);
             // change sorting layer. if this string is not a sorting layer, sets to default sorting layer
             sr.sortingLayerName = "Obstacles";
-        }
-
-        // If we hit the left edge of the screen, delete this obstacle. otherwise keep moving move left
-        void Update()
-        {
-            if (transform.position.x <= edgeOfScreen) {
-                Destroy(gameObject);
-                return;
-            }
         }
     }
 }

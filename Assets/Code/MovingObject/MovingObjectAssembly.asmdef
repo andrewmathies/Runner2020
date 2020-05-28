@@ -1,11 +1,6 @@
 {
-    "name": "ObstacleAssembly",
-    "references": [
-        "Midi",
-        "PlayerAssembly"
-        "MovingObjectAssembly",
-        "ForegroundAssembly"
-    ],
+    "name": "MovingObjectAssembly",
+    "references": [],
     "optionalUnityReferences": [],
     "includePlatforms": [
         "Android",
