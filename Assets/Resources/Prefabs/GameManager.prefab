@@ -64,7 +64,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obstaclePrefab: {fileID: 1983875047703190574, guid: f342748bfe0cbb849b6fa53dbf923a33,
     type: 3}
-  player: {fileID: 0}
+  player: {fileID: 6817353038840277480, guid: f6b919f3de2b62e42bcf2b29cd8fdab8, type: 3}
 --- !u!114 &1930116696
 MonoBehaviour:
   m_ObjectHideFlags: 0

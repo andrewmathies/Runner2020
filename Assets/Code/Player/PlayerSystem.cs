@@ -6,9 +6,12 @@ using Audio;
 
 namespace Player {
     public class PlayerSystem : StateMachine {
-        public AudioManager audioManager;
+        public GameObject gameManager;
+        
         public float Speed;
 
+        [HideInInspector]
+        public AudioManager audioManager;
         [HideInInspector] public Rigidbody2D Rigidbody;
         [HideInInspector] public Animator Animator;
 
@@ -28,6 +31,8 @@ namespace Player {
         private void Start() {
             this.HitPoints = this.MaxHealth;
             this.InitialForce = this.Speed * 50;
+            
+            this.audioManager = this.gameManager.GetComponent<AudioManager>();
             this.Animator = gameObject.GetComponent<Animator>();
             this.Rigidbody = gameObject.GetComponent<Rigidbody2D>();
             SetState(new Begin(this));

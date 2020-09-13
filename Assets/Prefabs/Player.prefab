@@ -47,8 +47,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 817da3ae4559c5044a0e96a87e5945b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioManager: {fileID: 0}
+  gameManager: {fileID: 8315194157572926251, guid: 2c917bceeba70f94da4966985e2a0125,
+    type: 3}
   Speed: 4
+  audioManager: {fileID: 0}
   Rigidbody: {fileID: 0}
   Animator: {fileID: 0}
   FrameCounter: 0
