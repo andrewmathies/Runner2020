@@ -10,19 +10,20 @@ namespace Player {
         
         public float Speed;
 
-        [HideInInspector]
         public AudioManager audioManager;
-        [HideInInspector] public Rigidbody2D Rigidbody;
-        [HideInInspector] public Animator Animator;
+        public Rigidbody2D Rigidbody;
+        public Animator Animator;
 
-        [HideInInspector] public int FrameCounter = 0;
-        [HideInInspector] public int EnemiesKilled = 0;
+        public int FrameCounter = 0;
+        public int EnemiesKilled = 0;
         // obstacle count will be set by the obstacle manager
-        [HideInInspector] public int ObstacleCount;
+        [HideInInspector]
+        public int ObstacleCount;
         // current health of player
-        [HideInInspector] public int HitPoints;
-        [HideInInspector] public float InitialForce;
-        
+        public int HitPoints;
+        [HideInInspector]
+        public float InitialForce;
+        public string debugState;
         
         // this is how many times player can be hit and still live
         // TODO: will definitely need to be tuned
@@ -43,18 +44,27 @@ namespace Player {
             StartCoroutine(State.Hit(obstacleGameObject));
         }
 
-        private void Update() {
-            bool tap = false;
+        private void FixedUpdate() {
             FrameCounter++;
+        }
 
+        private void Update() {
+            bool tap = tap = Input.GetButton("Attack");
+            debugState = this.State.ToString();
+
+            /*
+            TODO: implement touch on android
             foreach(Touch touch in Input.touches) {
                 if (touch.phase == TouchPhase.Began) {
                     tap = true;
                 }
             }
+            */
 
             if (tap) {
-                StartCoroutine(State.Attack());
+                if (debugState == "Player.Hit" || debugState == "Player.Run") {
+                    StartCoroutine(State.Attack());
+                }
             }
         }
 
@@ -70,3 +80,8 @@ namespace Player {
         }
     }
 }
+
+/*
+TODO:
+need UI for current health and max health of player
+*/

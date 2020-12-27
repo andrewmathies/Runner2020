@@ -5,14 +5,21 @@ using UnityEngine;
 namespace Player {
     public class Rebound : State {
         private bool wasHit = false;
+        private bool Success;
 
-        public Rebound(PlayerSystem playerSystem) : base(playerSystem) {
+        public Rebound(PlayerSystem playerSystem, bool success) : base(playerSystem) {
+            this.Success = success;
         }
 
         public override IEnumerator Start() {
             PlayerSystem.FrameCounter = 0;
-            yield return new WaitUntil(() => PlayerSystem.FrameCounter >= 5 || wasHit);
 
+            if (this.Success) {
+                yield return new WaitUntil(() => PlayerSystem.FrameCounter >= 5 || wasHit);
+            } else {
+                yield return new WaitUntil(() => PlayerSystem.FrameCounter >= 25 || wasHit);
+            }
+            
             if (wasHit) {
                 yield break;
             }

@@ -10,7 +10,7 @@ namespace Player {
         public override IEnumerator Start() {
             // TODO: make the player flash or change to a was hit animation or something
             PlayerSystem.FrameCounter = 0;
-            yield return new WaitUntil(() => PlayerSystem.FrameCounter >= 5);
+            yield return new WaitUntil(() => PlayerSystem.FrameCounter >= 20);
             PlayerSystem.SetState(new Run(PlayerSystem));
         }
 
