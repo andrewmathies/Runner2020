@@ -6,38 +6,33 @@ using UnityEngine;
 
 using Midi;
 using Player;
-using MovingObjects;
 
 namespace Obstacles {
     public class ObstacleManager : MonoBehaviour {
         public GameObject obstaclePrefab;
         public GameObject player;
         public Dictionary<ObstacleType, Texture2D> ObstacleTextures;
-        
-        private Queue<GameObject> obstacles = new Queue<GameObject>();
+
         private GameObject obstacleContainer;
-        private Vector3 newObstaclePosition = new Vector3(20, 13, 0);
-        private float speed = 150f;
+        private PlayerSystem playerSystem;
 
         void Start()
         {   
+            playerSystem = player.GetComponent<PlayerSystem>();
             obstacleContainer = new GameObject("Obstacle Container");
             LoadObstacleTextures();
 
             MidiParser parser = gameObject.GetComponent<MidiParser>();
 
             if (parser == null) {
-                Debug.Log("MidiParser was not initialized before ObstacleManager");
+                Debug.LogError("Midi parser was not initialized before obstacle manager");
                 return;
             }
 
-            // wait for the queue to have something in it to avoid race conditions
-            while (parser.Tracks.Count == 0) {}
+            // wait for the queues to fill up to avoid race conditions
+            while (parser.Tracks[1].Events.Count == 0) {}
 
-            Track melodyTrack = parser.Tracks[1];   
-
-            GenerateObstacles(melodyTrack);
-            StartCoroutine(SendObstacles(melodyTrack, parser.SecondsPerTick));
+            GenerateObstacles(parser.Tracks[1], parser.SecondsPerTick);
         }
 
         private void LoadObstacleTextures() {
@@ -62,44 +57,32 @@ namespace Obstacles {
             return newObstacleGameObject;
         }
 
-        private void GenerateObstacles(Track track) {
-            foreach (Midi.Event e in track.Events.ToArray()) {
-                if (e.GetType() == typeof(Midi.MidiEvent)) {
-                    MidiEvent midiEvent = (MidiEvent) e;
-
-                    // create a new obstacle if it was a note on event
-                    if (midiEvent.Type == MidiEventType.NoteOn) {
-                        GameObject newObstacle = CreateObstacle(ObstacleType.Beholder, newObstaclePosition);
-                        obstacles.Enqueue(newObstacle);
-                    }
-                }
-            }
-        }
-
-        private IEnumerator SendObstacles(Track track, float secondsPerTick) {
+        private void GenerateObstacles(Track track, float secondsPerTick) {
+            // 0.25 is about half the character model. we want to place obstacles to line up with front of player not center
+            float startPosition = player.transform.position.x + 1.5f;
+            float timeInSong = 0f;
+            float playerSpeed = playerSystem.Speed;
+            int obstacleCount = 0;
+            
             while (track.Events.Count > 0) {
-                // read the next event in this track
+                // read the next event in this track, and add the delta time for this event to our counter
                 Midi.Event e = track.Events.Dequeue();
-                float sleepTime = Convert.ToSingle(e.Delta) * secondsPerTick;
+                timeInSong += Convert.ToSingle(e.Delta) * secondsPerTick;
+
 
                 if (e.GetType() == typeof(Midi.MidiEvent)) {
                     MidiEvent midiEvent = (MidiEvent) e;
 
                     // create a new obstacle if it was a note on event
                     if (midiEvent.Type == MidiEventType.NoteOn) {
-                        if (obstacles.Count == 0) {
-                            Debug.Log("Tried to dequeue an obstacle from an empty queue");
-                            yield break;
-                        }
-
-                        GameObject obstacle = obstacles.Dequeue();
-                        Rigidbody2D rb = obstacle.GetComponent<Rigidbody2D>();
-                        rb.AddForce(Vector2.left * speed);
+                        obstacleCount++;
+                        float obstaclePosition = startPosition + timeInSong * playerSpeed;
+                        GameObject newObstacle = CreateObstacle(ObstacleType.Beholder, new Vector3(obstaclePosition, 13, 0));
                     }
                 }
-
-                yield return new WaitForSeconds(sleepTime);
             }
+
+            playerSystem.ObstacleCount = obstacleCount;
         }
     }
 }

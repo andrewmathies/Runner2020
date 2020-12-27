@@ -10,6 +10,8 @@ namespace MovingObjects
     {
         public ObstacleType Type;
 
+        //private float edgeOfScreen = -12f;
+
         private SpriteRenderer sr;
         private ObstacleManager obstacleManager;
 
@@ -34,5 +36,18 @@ namespace MovingObjects
             // change sorting layer. if this string is not a sorting layer, sets to default sorting layer
             sr.sortingLayerName = "Obstacles";
         }
+/*
+        // If we hit the left edge of the screen, delete this obstacle. otherwise keep moving move left
+        void Update()
+        {
+            if (transform.position.x <= edgeOfScreen) {
+                obstacleManager.RemoveObstacle();
+                Destroy(gameObject);
+                return;
+            }
+
+            transform.Translate(Vector3.left * Speed * Time.deltaTime);
+        }
+        */
     }
 }

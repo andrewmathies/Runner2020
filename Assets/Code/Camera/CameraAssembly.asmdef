@@ -1,9 +1,6 @@
 {
-    "name": "ObstacleAssembly",
-    "references": [
-        "Midi",
-        "PlayerAssembly"
-    ],
+    "name": "CameraAssembly",
+    "references": [],
     "optionalUnityReferences": [],
     "includePlatforms": [
         "Android",

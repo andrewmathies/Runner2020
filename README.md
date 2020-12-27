@@ -21,6 +21,8 @@ https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/
 ### Unity Docs
 https://docs.unity3d.com/
 
+guide for installing Android tools to test on Android device: https://docs.unity3d.com/2018.4/Documentation/Manual/android-sdksetup.html
+
 ### Unity Console
 https://developer.cloud.unity3d.com/
 
