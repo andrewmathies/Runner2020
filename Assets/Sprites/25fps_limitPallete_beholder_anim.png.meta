@@ -1,0 +1,968 @@
+fileFormatVersion: 2
+guid: e1372ede157e73343818bf48f084e585
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -9045318063793525602
+    second: 25fps_limitPallete_beholder_anim_0
+  - first:
+      213: 7802089418183113699
+    second: 25fps_limitPallete_beholder_anim_1
+  - first:
+      213: 5005473351146584313
+    second: 25fps_limitPallete_beholder_anim_2
+  - first:
+      213: -1357328573999023349
+    second: 25fps_limitPallete_beholder_anim_3
+  - first:
+      213: -6848450070949055248
+    second: 25fps_limitPallete_beholder_anim_4
+  - first:
+      213: -8776942390029529313
+    second: 25fps_limitPallete_beholder_anim_5
+  - first:
+      213: -6692695064499514185
+    second: 25fps_limitPallete_beholder_anim_6
+  - first:
+      213: 4755712583739643814
+    second: 25fps_limitPallete_beholder_anim_7
+  - first:
+      213: -6989608917451887821
+    second: 25fps_limitPallete_beholder_anim_8
+  - first:
+      213: 19411462494399209
+    second: 25fps_limitPallete_beholder_anim_9
+  - first:
+      213: 4329867707670835164
+    second: 25fps_limitPallete_beholder_anim_10
+  - first:
+      213: 1824830456273665799
+    second: 25fps_limitPallete_beholder_anim_11
+  - first:
+      213: -5760163845445537972
+    second: 25fps_limitPallete_beholder_anim_12
+  - first:
+      213: -6147358495710814404
+    second: 25fps_limitPallete_beholder_anim_13
+  - first:
+      213: -4525134368962546760
+    second: 25fps_limitPallete_beholder_anim_14
+  - first:
+      213: 2521636721430022855
+    second: 25fps_limitPallete_beholder_anim_15
+  - first:
+      213: -6389846152610649325
+    second: 25fps_limitPallete_beholder_anim_16
+  - first:
+      213: -6109982244981530844
+    second: 25fps_limitPallete_beholder_anim_17
+  - first:
+      213: -5079088166483379488
+    second: 25fps_limitPallete_beholder_anim_18
+  - first:
+      213: 256440697191731517
+    second: 25fps_limitPallete_beholder_anim_19
+  - first:
+      213: -9083520679227567130
+    second: 25fps_limitPallete_beholder_anim_20
+  - first:
+      213: 3847673547757885071
+    second: 25fps_limitPallete_beholder_anim_21
+  - first:
+      213: 5839476312884267782
+    second: 25fps_limitPallete_beholder_anim_22
+  - first:
+      213: -356641114950534312
+    second: 25fps_limitPallete_beholder_anim_23
+  - first:
+      213: 1108059372317208121
+    second: 25fps_limitPallete_beholder_anim_24
+  - first:
+      213: 4720933657461291762
+    second: 25fps_limitPallete_beholder_anim_25
+  - first:
+      213: -2523182679468310118
+    second: 25fps_limitPallete_beholder_anim_26
+  - first:
+      213: 7621604364520031719
+    second: 25fps_limitPallete_beholder_anim_27
+  - first:
+      213: -6698511856808456486
+    second: 25fps_limitPallete_beholder_anim_28
+  - first:
+      213: -5745292091386021026
+    second: 25fps_limitPallete_beholder_anim_29
+  - first:
+      213: 2394161651192798151
+    second: 25fps_limitPallete_beholder_anim_30
+  - first:
+      213: 5132375812261099987
+    second: 25fps_limitPallete_beholder_anim_31
+  - first:
+      213: 3814285074504017464
+    second: 25fps_limitPallete_beholder_anim_0
+  - first:
+      213: -8654440457659099347
+    second: 25fps_limitPallete_beholder_anim_1
+  - first:
+      213: -7951927306353422549
+    second: 25fps_limitPallete_beholder_anim_2
+  - first:
+      213: 1459064395766806364
+    second: 25fps_limitPallete_beholder_anim_3
+  - first:
+      213: 2430955573912020012
+    second: 25fps_limitPallete_beholder_anim_4
+  - first:
+      213: -5275699763119740376
+    second: 25fps_limitPallete_beholder_anim_5
+  - first:
+      213: -7391169256715063891
+    second: 25fps_limitPallete_beholder_anim_6
+  - first:
+      213: -7656944437062766172
+    second: 25fps_limitPallete_beholder_anim_7
+  - first:
+      213: 528792128290171770
+    second: 25fps_limitPallete_beholder_anim_8
+  - first:
+      213: 6990943980100742530
+    second: 25fps_limitPallete_beholder_anim_9
+  - first:
+      213: -8729536793547651765
+    second: 25fps_limitPallete_beholder_anim_10
+  - first:
+      213: -4549537420593603781
+    second: 25fps_limitPallete_beholder_anim_11
+  - first:
+      213: -1041960801862024064
+    second: 25fps_limitPallete_beholder_anim_12
+  - first:
+      213: 6352377504134701821
+    second: 25fps_limitPallete_beholder_anim_13
+  - first:
+      213: 4817794177549099142
+    second: 25fps_limitPallete_beholder_anim_14
+  - first:
+      213: -6573560667195874085
+    second: 25fps_limitPallete_beholder_anim_15
+  - first:
+      213: -5161051777455477509
+    second: 25fps_limitPallete_beholder_anim_16
+  - first:
+      213: -4571671575014695694
+    second: 25fps_limitPallete_beholder_anim_17
+  - first:
+      213: -1706538638651461789
+    second: 25fps_limitPallete_beholder_anim_18
+  - first:
+      213: -8094775595517897812
+    second: 25fps_limitPallete_beholder_anim_19
+  - first:
+      213: -4102204862790254281
+    second: 25fps_limitPallete_beholder_anim_20
+  - first:
+      213: -8778251475834246590
+    second: 25fps_limitPallete_beholder_anim_21
+  - first:
+      213: 5102202107764204592
+    second: 25fps_limitPallete_beholder_anim_22
+  - first:
+      213: -6850480148365099417
+    second: 25fps_limitPallete_beholder_anim_23
+  - first:
+      213: -7950979655989043829
+    second: 25fps_limitPallete_beholder_anim_24
+  - first:
+      213: 1031932227147619801
+    second: 25fps_limitPallete_beholder_anim_25
+  - first:
+      213: -591718069254665428
+    second: 25fps_limitPallete_beholder_anim_26
+  - first:
+      213: 4086631838563942030
+    second: 25fps_limitPallete_beholder_anim_27
+  - first:
+      213: 3138245357776002817
+    second: 25fps_limitPallete_beholder_anim_28
+  - first:
+      213: 6718141524185887987
+    second: 25fps_limitPallete_beholder_anim_29
+  - first:
+      213: 2569470291293086512
+    second: 25fps_limitPallete_beholder_anim_30
+  - first:
+      213: 5963815293804035738
+    second: 25fps_limitPallete_beholder_anim_31
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 25fps_limitPallete_beholder_anim_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1032
+        width: 216
+        height: 172
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 836e2e9f0101fe430800000000000000
+      internalID: 3814285074504017464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 25fps_limitPallete_beholder_anim_1
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 1032
+        width: 216
+        height: 172
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d27d577c14045e780800000000000000
+      internalID: -8654440457659099347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 25fps_limitPallete_beholder_anim_2
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 1032
+        width: 216
+        height: 172
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2f4319fe3415a190800000000000000
+      internalID: -7951927306353422549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 25fps_limitPallete_beholder_anim_3
+      rect:
+        serializedVersion: 2
+        x: 648
+        y: 1032
+        width: 216
+        height: 172
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c57b9166653af3410800000000000000
+      internalID: 1459064395766806364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 25fps_limitPallete_beholder_anim_4
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 1032
+        width: 216
+        height: 172
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2428c7f63d7cb120800000000000000
+      internalID: 2430955573912020012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 25fps_limitPallete_beholder_anim_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 860
+        width: 216
+        height: 172
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82aa2ad6403f8c6b0800000000000000
+      internalID: -5275699763119740376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 25fps_limitPallete_beholder_anim_6
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 860
+        width: 216
+        height: 172
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dade5ba98ba4d6990800000000000000
+      internalID: -7391169256715063891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 25fps_limitPallete_beholder_anim_7
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 860
+        width: 216
+        height: 172
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a178fb4a911db590800000000000000
+      internalID: -7656944437062766172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 25fps_limitPallete_beholder_anim_8
+      rect:
+        serializedVersion: 2
+        x: 648
+        y: 860
+        width: 216
+        height: 172
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7b22c693a5a65700800000000000000
+      internalID: 528792128290171770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 25fps_limitPallete_beholder_anim_9
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 860
+        width: 216
+        height: 172
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28d6f82a282d40160800000000000000
+      internalID: 6990943980100742530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 25fps_limitPallete_beholder_anim_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 688
+        width: 216
+        height: 172
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b45c3ee89847ad680800000000000000
+      internalID: -8729536793547651765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 25fps_limitPallete_beholder_anim_11
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 688
+        width: 216
+        height: 172
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3bdb2902dbccd0c0800000000000000
+      internalID: -4549537420593603781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 25fps_limitPallete_beholder_anim_12
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 688
+        width: 216
+        height: 172
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0840227db263a81f0800000000000000
+      internalID: -1041960801862024064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 25fps_limitPallete_beholder_anim_13
+      rect:
+        serializedVersion: 2
+        x: 648
+        y: 688
+        width: 216
+        height: 172
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df2a1250fad282850800000000000000
+      internalID: 6352377504134701821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 25fps_limitPallete_beholder_anim_14
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 688
+        width: 216
+        height: 172
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68062c9574e3cd240800000000000000
+      internalID: 4817794177549099142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 25fps_limitPallete_beholder_anim_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 516
+        width: 216
+        height: 172
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd46f42c66506c4a0800000000000000
+      internalID: -6573560667195874085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 25fps_limitPallete_beholder_anim_16
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 516
+        width: 216
+        height: 172
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfc2e59b0c24068b0800000000000000
+      internalID: -5161051777455477509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 25fps_limitPallete_beholder_anim_17
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 516
+        width: 216
+        height: 172
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fc9f7d9ce82e80c0800000000000000
+      internalID: -4571671575014695694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 25fps_limitPallete_beholder_anim_18
+      rect:
+        serializedVersion: 2
+        x: 648
+        y: 516
+        width: 216
+        height: 172
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36f63b756282158e0800000000000000
+      internalID: -1706538638651461789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 25fps_limitPallete_beholder_anim_19
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 516
+        width: 216
+        height: 172
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca397acdb7499af80800000000000000
+      internalID: -8094775595517897812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 25fps_limitPallete_beholder_anim_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 344
+        width: 216
+        height: 172
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 731c185696a0217c0800000000000000
+      internalID: -4102204862790254281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 25fps_limitPallete_beholder_anim_21
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 344
+        width: 216
+        height: 172
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24ae9d9bac26d2680800000000000000
+      internalID: -8778251475834246590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 25fps_limitPallete_beholder_anim_22
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 344
+        width: 216
+        height: 172
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 034e88dc8c9aec640800000000000000
+      internalID: 5102202107764204592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 25fps_limitPallete_beholder_anim_23
+      rect:
+        serializedVersion: 2
+        x: 648
+        y: 344
+        width: 216
+        height: 172
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76e35d7b9943ee0a0800000000000000
+      internalID: -6850480148365099417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 25fps_limitPallete_beholder_anim_24
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 344
+        width: 216
+        height: 172
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8d5a64012278a190800000000000000
+      internalID: -7950979655989043829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 25fps_limitPallete_beholder_anim_25
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 172
+        width: 216
+        height: 172
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9dd5967a4e8225e00800000000000000
+      internalID: 1031932227147619801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 25fps_limitPallete_beholder_anim_26
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 172
+        width: 216
+        height: 172
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2b45e21d8bc9c7f0800000000000000
+      internalID: -591718069254665428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 25fps_limitPallete_beholder_anim_27
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 172
+        width: 216
+        height: 172
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8eb7695102a6b830800000000000000
+      internalID: 4086631838563942030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 25fps_limitPallete_beholder_anim_28
+      rect:
+        serializedVersion: 2
+        x: 648
+        y: 172
+        width: 216
+        height: 172
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10fd14896894d8b20800000000000000
+      internalID: 3138245357776002817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 25fps_limitPallete_beholder_anim_29
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 172
+        width: 216
+        height: 172
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f4b6eb3f12ab3d50800000000000000
+      internalID: 6718141524185887987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 25fps_limitPallete_beholder_anim_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 216
+        height: 172
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 033a175cd9798a320800000000000000
+      internalID: 2569470291293086512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 25fps_limitPallete_beholder_anim_31
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 0
+        width: 216
+        height: 172
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9e3b3d796ab3c250800000000000000
+      internalID: 5963815293804035738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

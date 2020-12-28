@@ -84,4 +84,5 @@ namespace Player {
 /*
 TODO:
 need UI for current health and max health of player
+130, 130, 80 rgb
 */

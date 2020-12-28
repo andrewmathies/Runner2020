@@ -1,0 +1,683 @@
+fileFormatVersion: 2
+guid: e8eac1e3611d53f4286f6aec0b819442
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 701071299033897250
+    second: beholder sprite sheet_0
+  - first:
+      213: -7580199592652010897
+    second: beholder sprite sheet_0
+  - first:
+      213: 571193121495033278
+    second: beholder sprite sheet_1
+  - first:
+      213: 8365419967168102191
+    second: beholder sprite sheet_2
+  - first:
+      213: -2963343827736936915
+    second: beholder sprite sheet_3
+  - first:
+      213: -6041945000685449119
+    second: beholder sprite sheet_4
+  - first:
+      213: -4409738490368534553
+    second: beholder sprite sheet_5
+  - first:
+      213: -699709339431992450
+    second: beholder sprite sheet_6
+  - first:
+      213: -5170922015242969880
+    second: beholder sprite sheet_7
+  - first:
+      213: 3467591898652004294
+    second: beholder sprite sheet_8
+  - first:
+      213: -3850548622521689226
+    second: beholder sprite sheet_9
+  - first:
+      213: -1636286696921445363
+    second: beholder sprite sheet_10
+  - first:
+      213: -3313476982084286050
+    second: beholder sprite sheet_11
+  - first:
+      213: 802271016467503176
+    second: beholder sprite sheet_12
+  - first:
+      213: -6011591786512360898
+    second: beholder sprite sheet_13
+  - first:
+      213: 1011484771637474197
+    second: beholder sprite sheet_14
+  - first:
+      213: -6288022537783115023
+    second: beholder sprite sheet_15
+  - first:
+      213: 9128739691842000375
+    second: beholder sprite sheet_16
+  - first:
+      213: 7950468098116551176
+    second: beholder sprite sheet_17
+  - first:
+      213: 8977525908738598236
+    second: beholder sprite sheet_18
+  - first:
+      213: 7674909123258469810
+    second: beholder sprite sheet_19
+  - first:
+      213: -4533718568594898803
+    second: beholder sprite sheet_20
+  - first:
+      213: 3721748148856433427
+    second: beholder sprite sheet_21
+  - first:
+      213: -7446239367012399286
+    second: beholder sprite sheet_22
+  - first:
+      213: 1551817848063292120
+    second: beholder sprite sheet_23
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: beholder sprite sheet_0
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 693
+        width: 173
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6a8a61d1a8bdc690800000000000000
+      internalID: -7580199592652010897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beholder sprite sheet_1
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 693
+        width: 173
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb5abd02e194de700800000000000000
+      internalID: 571193121495033278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beholder sprite sheet_2
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 694
+        width: 173
+        height: 166
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2fb3046321f71470800000000000000
+      internalID: 8365419967168102191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beholder sprite sheet_3
+      rect:
+        serializedVersion: 2
+        x: 667
+        y: 694
+        width: 184
+        height: 166
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2eb4683d7610e6d0800000000000000
+      internalID: -2963343827736936915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beholder sprite sheet_4
+      rect:
+        serializedVersion: 2
+        x: 884
+        y: 695
+        width: 173
+        height: 165
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16052b19803b62ca0800000000000000
+      internalID: -6041945000685449119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beholder sprite sheet_5
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 523
+        width: 173
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e75731f4367dc2c0800000000000000
+      internalID: -4409738490368534553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beholder sprite sheet_6
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 524
+        width: 173
+        height: 148
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e73022120122a46f0800000000000000
+      internalID: -699709339431992450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beholder sprite sheet_7
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 524
+        width: 173
+        height: 148
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ec1238e2d13d38b0800000000000000
+      internalID: -5170922015242969880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beholder sprite sheet_8
+      rect:
+        serializedVersion: 2
+        x: 668
+        y: 525
+        width: 173
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cfcc21b57c5f1030800000000000000
+      internalID: 3467591898652004294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beholder sprite sheet_9
+      rect:
+        serializedVersion: 2
+        x: 884
+        y: 525
+        width: 194
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67b993ccd6a109ac0800000000000000
+      internalID: -3850548622521689226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beholder sprite sheet_10
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 354
+        width: 173
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0ccc472bedba49e0800000000000000
+      internalID: -1636286696921445363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beholder sprite sheet_11
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 354
+        width: 173
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e99ce678d3a2402d0800000000000000
+      internalID: -3313476982084286050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beholder sprite sheet_12
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 355
+        width: 173
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84813262d3d322b00800000000000000
+      internalID: 802271016467503176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beholder sprite sheet_13
+      rect:
+        serializedVersion: 2
+        x: 668
+        y: 355
+        width: 173
+        height: 148
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3a5646fe19829ca0800000000000000
+      internalID: -6011591786512360898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beholder sprite sheet_14
+      rect:
+        serializedVersion: 2
+        x: 884
+        y: 356
+        width: 173
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5933b2d6a04890e00800000000000000
+      internalID: 1011484771637474197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beholder sprite sheet_15
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 185
+        width: 173
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f289c731d47cb8a0800000000000000
+      internalID: -6288022537783115023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beholder sprite sheet_16
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 186
+        width: 173
+        height: 143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f55043326ccfae70800000000000000
+      internalID: 9128739691842000375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beholder sprite sheet_17
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 185
+        width: 173
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8020052ac9cb55e60800000000000000
+      internalID: 7950468098116551176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beholder sprite sheet_18
+      rect:
+        serializedVersion: 2
+        x: 668
+        y: 184
+        width: 173
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c55ea30cf34969c70800000000000000
+      internalID: 8977525908738598236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beholder sprite sheet_19
+      rect:
+        serializedVersion: 2
+        x: 884
+        y: 183
+        width: 194
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bdc9372f21c28a60800000000000000
+      internalID: 7674909123258469810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beholder sprite sheet_20
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 11
+        width: 184
+        height: 161
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d800f478bfef411c0800000000000000
+      internalID: -4533718568594898803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beholder sprite sheet_21
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 0
+        width: 199
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31b2e04093e46a330800000000000000
+      internalID: 3721748148856433427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beholder sprite sheet_22
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 0
+        width: 187
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4742b06fb4a9a890800000000000000
+      internalID: -7446239367012399286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: beholder sprite sheet_23
+      rect:
+        serializedVersion: 2
+        x: 668
+        y: 0
+        width: 179
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d27ce56c1a298510800000000000000
+      internalID: 1551817848063292120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
