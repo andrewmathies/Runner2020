@@ -12,6 +12,7 @@ namespace Obstacle {
         public GameObject obstaclePrefab;
         public GameObject player;
         public Dictionary<ObstacleType, Texture2D> ObstacleTextures;
+        public float obstacleSpriteOffset;
 
         private GameObject obstacleContainer;
         private PlayerSystem playerSystem;
@@ -32,7 +33,9 @@ namespace Obstacle {
             // wait for the queues to fill up to avoid race conditions
             while (parser.Tracks[1].Events.Count == 0) {}
 
-            GenerateObstacles(parser.Tracks[1], parser.SecondsPerTick);
+            // cannot use header track, that contains metadata
+            int trackSelection = UnityEngine.Random.Range(1, parser.Tracks.Count);
+            GenerateObstacles(parser.Tracks[trackSelection], parser.SecondsPerTick);
         }
 
         private void LoadObstacleTextures() {
@@ -59,7 +62,7 @@ namespace Obstacle {
 
         private void GenerateObstacles(Track track, float secondsPerTick) {
             // 0.25 is about half the character model. we want to place obstacles to line up with front of player not center
-            float startPosition = player.transform.position.x + 1.5f;
+            float startPosition = player.transform.position.x + obstacleSpriteOffset;
             float timeInSong = 0f;
             float playerSpeed = playerSystem.Speed;
             int obstacleCount = 0;
@@ -76,7 +79,7 @@ namespace Obstacle {
                     if (midiEvent.Type == MidiEventType.NoteOn) {
                         obstacleCount++;
                         float obstaclePosition = startPosition + timeInSong * playerSpeed;
-                        GameObject newObstacle = CreateObstacle(ObstacleType.Beholder, new Vector3(obstaclePosition, 13, 0));
+                        GameObject newObstacle = CreateObstacle(ObstacleType.Beholder, new Vector3(obstaclePosition, player.transform.position.y, 0));
                     }
                 }
             }

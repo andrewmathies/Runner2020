@@ -11,10 +11,22 @@ namespace Midi {
         public bool TimeBasedDivision;
         public List<Track> Tracks;
         public float SecondsPerTick;
+        public string SelectedSong;
 
         private void Awake() {
-            Debug.Log("starting to parse midi file");
-            this.Parse(".\\Assets\\Code\\Midi\\test.mid");
+            // randomly pick a song
+            // there is an assumption here that whatever audio files exist in this folder have a matching midi file in the assets\midi folder
+            string[] songPaths = Directory.GetFiles(".\\Assets\\Audio\\", "*.mp3", SearchOption.TopDirectoryOnly);
+            string[] songNames = new string[songPaths.Length];
+
+            for (int i = 0; i < songPaths.Length; i++) {
+                songNames[i] = Path.GetFileNameWithoutExtension(songPaths[i]);
+            }
+
+            this.SelectedSong = songNames[UnityEngine.Random.Range(0, songNames.Length)];
+
+            Debug.Log("starting to parse the midi file for: " + SelectedSong);
+            this.Parse(".\\Assets\\Midi\\" + SelectedSong + ".mid");
             this.SecondsPerTick = this.CalculateSecondsPerTick();
         }
 

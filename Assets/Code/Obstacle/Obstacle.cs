@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+do we even need this?
+*/
+
 namespace Obstacle {
     public class Obstacle : MonoBehaviour {
         public float Speed;
@@ -14,7 +18,7 @@ namespace Obstacle {
         // create a sprite renderer component, get reference to global data store, get reference to obstacle manager
         void Awake()
         {
-            sr = gameObject.AddComponent<SpriteRenderer>() as SpriteRenderer;
+            //sr = gameObject.AddComponent<SpriteRenderer>() as SpriteRenderer;
             obstacleManager = GameObject.FindObjectOfType(typeof(ObstacleManager)) as ObstacleManager;
         }
 
@@ -22,14 +26,14 @@ namespace Obstacle {
         public void Init(ObstacleType t) {
             Type = t;
 
-            Dictionary<ObstacleType, Texture2D> obstacleTextureMap = obstacleManager.ObstacleTextures;
+            //Dictionary<ObstacleType, Texture2D> obstacleTextureMap = obstacleManager.ObstacleTextures;
             
-            Texture2D texture = obstacleTextureMap[t];
-            Rect rect = new Rect(0.0f, 0.0f, texture.width, texture.height);
-            Vector2 position = new Vector2(0.0f, 0.0f);
-            sr.sprite = Sprite.Create(texture, rect, position);
+            //Texture2D texture = obstacleTextureMap[t];
+            //Rect rect = new Rect(0.0f, 0.0f, texture.width, texture.height);
+            //Vector2 position = new Vector2(0.0f, 0.0f);
+            //sr.sprite = Sprite.Create(texture, rect, position);
             // change sorting layer. if this string is not a sorting layer, sets to default sorting layer
-            sr.sortingLayerName = "Obstacles";
+            //sr.sortingLayerName = "Obstacles";
         }
 /*
         // If we hit the left edge of the screen, delete this obstacle. otherwise keep moving move left

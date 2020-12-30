@@ -1,9 +1,9 @@
 {
     "name": "PlayerAssembly",
     "references": [
-        "AudioAssembly"
+        "AudioAssembly",
+        "Midi"
     ],
-    "optionalUnityReferences": [],
     "includePlatforms": [
         "Android",
         "Editor"
@@ -13,5 +13,7 @@
     "overrideReferences": false,
     "precompiledReferences": [],
     "autoReferenced": true,
-    "defineConstraints": []
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }

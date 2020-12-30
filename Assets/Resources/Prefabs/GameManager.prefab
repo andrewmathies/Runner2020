@@ -50,6 +50,7 @@ MonoBehaviour:
   TimeDivision: 0
   TimeBasedDivision: 0
   SecondsPerTick: 0
+  SelectedSong: 
 --- !u!114 &8315194157572926249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64,7 +65,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obstaclePrefab: {fileID: 1983875047703190574, guid: f342748bfe0cbb849b6fa53dbf923a33,
     type: 3}
-  player: {fileID: 6817353038840277480, guid: f6b919f3de2b62e42bcf2b29cd8fdab8, type: 3}
+  player: {fileID: 0}
 --- !u!114 &1930116696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78,7 +79,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Sounds:
-  - Name: AI Song 0
+  - Name: asfdasdf
     Clip: {fileID: 8300000, guid: f740542da533a844bbb5f392fb9394a6, type: 3}
     Source: {fileID: 0}
     Volume: 0.5

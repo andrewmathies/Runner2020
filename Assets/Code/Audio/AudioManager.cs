@@ -14,6 +14,9 @@ namespace Audio {
                 s.Source.clip = s.Clip;
                 s.Source.volume = s.Volume;
                 s.Source.pitch = s.Pitch;
+                string typeName = s.Clip.ToString();
+                s.Name = typeName.Split(' ')[0];
+                Debug.Log(s.Name);
             }            
         }
 
