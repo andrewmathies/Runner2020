@@ -1,4 +1,4 @@
-using System.Collections;
+using System.Collections.Generic;
 
 using UnityEngine;
 
@@ -12,7 +12,9 @@ namespace Player {
 
         public AudioManager audioManager;
         public Rigidbody2D Rigidbody;
-        public Animator Animator;
+        public Animator AttackAnimator;
+        [HideInInspector]
+        public Animator RunAnimator;
 
         public int FrameCounter = 0;
         public int EnemiesKilled = 0;
@@ -24,24 +26,36 @@ namespace Player {
         [HideInInspector]
         public float InitialForce;
         public string debugState;
+
+        [HideInInspector]
+        public Queue<GameObject> obstaclesInRange;
         
         // this is how many times player can be hit and still live
         // TODO: will definitely need to be tuned
         public int MaxHealth;
         
         private void Start() {
+            this.obstaclesInRange = new Queue<GameObject>();
             this.HitPoints = this.MaxHealth;
             this.InitialForce = this.Speed * 50;
             
+            this.RunAnimator = gameObject.GetComponent<Animator>();
             this.audioManager = this.gameManager.GetComponent<AudioManager>();
-            this.Animator = gameObject.GetComponent<Animator>();
             this.Rigidbody = gameObject.GetComponent<Rigidbody2D>();
             SetState(new Begin(this));
         }
 
-        private void OnTriggerEnter2D(Collider2D otherCollider) {
-            GameObject obstacleGameObject = otherCollider.gameObject;
-            StartCoroutine(State.Hit(obstacleGameObject));
+        private void OnTriggerEnter2D(Collider2D obstacleCollider) {
+            GameObject obstacleGameObject = obstacleCollider.gameObject;
+            obstaclesInRange.Enqueue(obstacleGameObject);
+            //StartCoroutine(State.Hit());
+        }
+
+        private void OnTriggerExit2D(Collider2D obstacleCollider) {
+            // this is messy, but I want to destroy the obstacles after they are hit succesfully so I don't aware more than one point per enemy
+            if (obstaclesInRange.Count != 0) {
+                obstaclesInRange.Dequeue();
+            }
         }
 
         private void FixedUpdate() {
@@ -62,7 +76,7 @@ namespace Player {
             */
 
             if (tap) {
-                if (debugState == "Player.Hit" || debugState == "Player.Run") {
+                if (debugState == "Player.Run") {
                     StartCoroutine(State.Attack());
                 }
             }

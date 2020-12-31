@@ -41,5 +41,11 @@ namespace Audio {
 
             s.Source.Stop();
         }
+
+        public void StopAll() {
+            foreach (Sound s in Sounds) {
+                s.Source.Stop();
+            }
+        }
     }
 }

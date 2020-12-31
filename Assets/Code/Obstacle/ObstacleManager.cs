@@ -34,8 +34,8 @@ namespace Obstacle {
             while (parser.Tracks[1].Events.Count == 0) {}
 
             // cannot use header track, that contains metadata
-            int trackSelection = UnityEngine.Random.Range(1, parser.Tracks.Count);
-            GenerateObstacles(parser.Tracks[trackSelection], parser.SecondsPerTick);
+            //int trackSelection = UnityEngine.Random.Range(1, parser.Tracks.Count);
+            GenerateObstacles(parser.Tracks[1], parser.SecondsPerTick);
         }
 
         private void LoadObstacleTextures() {
@@ -85,6 +85,7 @@ namespace Obstacle {
             }
 
             playerSystem.ObstacleCount = obstacleCount;
+            Debug.Log("This track has " + obstacleCount + " obstacles");
         }
     }
 }

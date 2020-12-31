@@ -7,7 +7,7 @@ namespace Player {
         private bool attacked = false;
         private GameObject obstacle;
 
-        public Hit(PlayerSystem playerSystem, GameObject obstacle) : base(playerSystem) {
+        public Hit(PlayerSystem playerSystem) : base(playerSystem) {
             this.obstacle = obstacle;
         }
 
@@ -20,7 +20,7 @@ namespace Player {
                 yield break;
             }
 
-            PlayerSystem.TookDamage();
+            //PlayerSystem.TookDamage();
         }
 
         public override IEnumerator Attack() {
@@ -29,9 +29,10 @@ namespace Player {
             PlayerSystem.EnemiesKilled++;
             // TODO: when we get art and animation for beholders, we should tell the obstacle
             // it needs to start the death animation and destroy itself instead of destroying it here
-            Object.Destroy(obstacle);
+            GameObject obstacle = PlayerSystem.obstaclesInRange.Peek();
+            obstacle.GetComponent<SpriteRenderer>().enabled = false;
 
-            PlayerSystem.SetState(new Attack(PlayerSystem, true));
+            PlayerSystem.SetState(new Attack(PlayerSystem));
             yield return null;
         }
     }

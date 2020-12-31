@@ -18,7 +18,7 @@ namespace Player {
             yield return null;
         }
 
-        public virtual IEnumerator Hit(GameObject obstacle) {
+        public virtual IEnumerator Hit() {
             yield break;
         }
     }

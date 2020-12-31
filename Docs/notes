@@ -2,7 +2,8 @@ can't use new fantasy solo strings songs, because I left moving tempo field chec
 
 GOALS
 -------
-- get state machine working cleanly (run, attack, hit, rebound?, win, lose)
-- fix attack/run animation mess. change to matching attack frames for n frames then go back to run frames
+- add logic for being hit to player system state machine
 - clean up frames of beholder float animation
 - UI for current health and max health of player
+- tune speed / size of attack hit box for maximum fun
+- add more space at beginning between player and first obstacle. it's too close to react rn
