@@ -48,7 +48,7 @@ MonoBehaviour:
   Format: 0
   TrackCount: 0
   TimeDivision: 0
-  TimeBasedDivision: 0
+  TimeBasedDivision: 1
   SecondsPerTick: 0
   SelectedSong: 
 --- !u!114 &8315194157572926249
@@ -63,9 +63,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 303d5627cb1fdbe449eefa2b6d54b584, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstaclePrefab: {fileID: 1983875047703190574, guid: f342748bfe0cbb849b6fa53dbf923a33,
+  obstaclePrefab: {fileID: 8348734297023004793, guid: 5402e6f605e798345b18f983c61d0ad0,
     type: 3}
   player: {fileID: 0}
+  obstacleSpriteOffset: 3
 --- !u!114 &1930116696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81,6 +82,11 @@ MonoBehaviour:
   Sounds:
   - Name: asfdasdf
     Clip: {fileID: 8300000, guid: f740542da533a844bbb5f392fb9394a6, type: 3}
+    Source: {fileID: 0}
+    Volume: 0.5
+    Pitch: 1
+  - Name: asfdasdf
+    Clip: {fileID: 8300000, guid: 9f6c2c776a243054c8e4c68f5cccae14, type: 3}
     Source: {fileID: 0}
     Volume: 0.5
     Pitch: 1

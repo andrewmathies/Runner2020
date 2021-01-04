@@ -4,12 +4,12 @@ using UnityEngine;
 
 namespace Player {
     public class Hit : State {
-        private bool attacked = false;
+        //private bool attacked = false;
         private GameObject obstacle;
 
         public Hit(PlayerSystem playerSystem) : base(playerSystem) {
-            this.obstacle = obstacle;
-        }
+            //this.obstacle = obstacle;
+        }/*
 
         public override IEnumerator Start() {
             // the player gets 2n frames to react and make an attack
@@ -34,6 +34,6 @@ namespace Player {
 
             PlayerSystem.SetState(new Attack(PlayerSystem));
             yield return null;
-        }
+        }*/
     }
 }

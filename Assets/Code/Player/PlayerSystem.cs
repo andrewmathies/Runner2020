@@ -38,13 +38,14 @@ namespace Player {
             this.obstaclesInRange = new Queue<GameObject>();
             this.HitPoints = this.MaxHealth;
             this.InitialForce = this.Speed * 50;
-            
+
             this.RunAnimator = gameObject.GetComponent<Animator>();
             this.audioManager = this.gameManager.GetComponent<AudioManager>();
             this.Rigidbody = gameObject.GetComponent<Rigidbody2D>();
             SetState(new Begin(this));
         }
 
+        /*
         private void OnTriggerEnter2D(Collider2D obstacleCollider) {
             GameObject obstacleGameObject = obstacleCollider.gameObject;
             obstaclesInRange.Enqueue(obstacleGameObject);
@@ -57,6 +58,7 @@ namespace Player {
                 obstaclesInRange.Dequeue();
             }
         }
+        */
 
         private void FixedUpdate() {
             FrameCounter++;
@@ -65,15 +67,13 @@ namespace Player {
         private void Update() {
             bool tap = tap = Input.GetButton("Attack");
             debugState = this.State.ToString();
-
-            /*
-            TODO: implement touch on android
+            
+            //TODO: implement touch on android
             foreach(Touch touch in Input.touches) {
                 if (touch.phase == TouchPhase.Began) {
                     tap = true;
                 }
             }
-            */
 
             if (tap) {
                 if (debugState == "Player.Run") {

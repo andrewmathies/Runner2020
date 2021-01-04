@@ -6,4 +6,3 @@ GOALS
 - clean up frames of beholder float animation
 - UI for current health and max health of player
 - tune speed / size of attack hit box for maximum fun
-- add more space at beginning between player and first obstacle. it's too close to react rn

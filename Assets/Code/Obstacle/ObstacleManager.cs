@@ -61,11 +61,15 @@ namespace Obstacle {
         }
 
         private void GenerateObstacles(Track track, float secondsPerTick) {
-            // 0.25 is about half the character model. we want to place obstacles to line up with front of player not center
-            float startPosition = player.transform.position.x + obstacleSpriteOffset;
             float timeInSong = 0f;
             float playerSpeed = playerSystem.Speed;
             int obstacleCount = 0;
+
+            // 1/3/21 put in  5 seconds of moving before audio plays to give player better chance with first obstacle
+            float runningSilenceTime = 5f;
+            float offset = runningSilenceTime * playerSpeed;
+            // 0.25 is about half the character model. we want to place obstacles to line up with front of player not center
+            float startPosition = player.transform.position.x + obstacleSpriteOffset + offset;
             
             while (track.Events.Count > 0) {
                 // read the next event in this track, and add the delta time for this event to our counter
