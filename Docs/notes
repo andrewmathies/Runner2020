@@ -1,7 +1,9 @@
 can't use new fantasy solo strings songs, because I left moving tempo field checked. so the audio doesn't line up with the midi.
 
-GOALS
+GOALS / TASKS
 -------
+- end state, comments describe what needs to be done
+- test that pressing button in end game menu changes scene back to main menu with no issues
 - add logic for being hit to player system state machine
 - clean up frames of beholder float animation
 - UI for current health and max health of player

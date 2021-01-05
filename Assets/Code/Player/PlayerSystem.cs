@@ -7,6 +7,7 @@ using Audio;
 namespace Player {
     public class PlayerSystem : StateMachine {
         public GameObject gameManager;
+        public GameObject GameEnder;
         
         public float Speed;
 
@@ -82,6 +83,7 @@ namespace Player {
             }
         }
 
+        /*
         // this should only be called from a state
         public void TookDamage() {
             this.HitPoints--;
@@ -92,5 +94,6 @@ namespace Player {
                 SetState(new Invulnerable(this));
             }
         }
+        */
     }
 }

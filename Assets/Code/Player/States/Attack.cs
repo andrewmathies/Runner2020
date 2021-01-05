@@ -27,7 +27,7 @@ namespace Player {
             int enemiesEncountered = PlayerSystem.EnemiesKilled + PlayerSystem.MaxHealth - PlayerSystem.HitPoints;
 
             if (enemiesEncountered == PlayerSystem.ObstacleCount) {
-                PlayerSystem.SetState(new Win(PlayerSystem));
+                PlayerSystem.SetState(new End(PlayerSystem));
             } else {
                 PlayerSystem.SetState(new Rebound(PlayerSystem, true));
             }
