@@ -8,6 +8,8 @@ namespace Player {
     public class PlayerSystem : StateMachine {
         public GameObject gameManager;
         public GameObject GameEnder;
+        public GameObject ResultObject;
+        public GameObject ScoreObject;
         
         public float Speed;
 
@@ -66,7 +68,7 @@ namespace Player {
         }
 
         private void Update() {
-            bool tap = tap = Input.GetButton("Attack");
+            bool tap = Input.GetButton("Attack");
             debugState = this.State.ToString();
             
             //TODO: implement touch on android
@@ -74,6 +76,10 @@ namespace Player {
                 if (touch.phase == TouchPhase.Began) {
                     tap = true;
                 }
+            }
+
+            if (Input.GetButton("End")) {
+                StartCoroutine(State.End());
             }
 
             if (tap) {

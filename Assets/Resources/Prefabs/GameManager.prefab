@@ -79,14 +79,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a18aedf0697e22848a089f3ced7b76d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Sounds:
-  - Name: asfdasdf
-    Clip: {fileID: 8300000, guid: f740542da533a844bbb5f392fb9394a6, type: 3}
-    Source: {fileID: 0}
-    Volume: 0.5
-    Pitch: 1
-  - Name: asfdasdf
-    Clip: {fileID: 8300000, guid: 9f6c2c776a243054c8e4c68f5cccae14, type: 3}
-    Source: {fileID: 0}
-    Volume: 0.5
-    Pitch: 1

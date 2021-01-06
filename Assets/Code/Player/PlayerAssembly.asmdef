@@ -2,7 +2,8 @@
     "name": "PlayerAssembly",
     "references": [
         "AudioAssembly",
-        "Midi"
+        "Midi",
+        "Unity.TextMeshPro"
     ],
     "includePlatforms": [
         "Android",

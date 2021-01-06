@@ -1,4 +1,7 @@
 ﻿using System;
+using System.IO;
+using System.Collections;
+using System.Collections.Generic;
 
 using UnityEngine.Audio;
 using UnityEngine;
@@ -6,17 +9,25 @@ using UnityEngine;
 namespace Audio {
     public class AudioManager : MonoBehaviour {
 
-        public Sound[] Sounds;
+        private Sound[] Sounds;
 
         void Awake() {
-            foreach (Sound s in Sounds) {
-                s.Source = gameObject.AddComponent<AudioSource>();
-                s.Source.clip = s.Clip;
-                s.Source.volume = s.Volume;
-                s.Source.pitch = s.Pitch;
-                string typeName = s.Clip.ToString();
-                s.Name = typeName.Split(' ')[0];
-                Debug.Log(s.Name);
+            string[] songPaths = Directory.GetFiles(".\\Assets\\Resources\\Audio\\", "*.mp3", SearchOption.TopDirectoryOnly);
+            string[] songNames = new string[songPaths.Length];
+            Sounds = new Sound[songPaths.Length];
+
+            for (int i = 0; i < songPaths.Length; i++) {
+                songNames[i] = Path.GetFileNameWithoutExtension(songPaths[i]);
+            }
+
+            for (int i = 0; i < songNames.Length; i++) {
+                Sounds[i] = new Sound();
+                Sounds[i].Source = gameObject.AddComponent<AudioSource>();
+                AudioClip audioClip = Resources.Load<AudioClip>("Audio\\" + songNames[i]);
+                Sounds[i].Source.clip = audioClip;
+                Sounds[i].Source.volume = 0.5f;
+                Sounds[i].Source.pitch = 1f;
+                Sounds[i].Name = songNames[i];
             }            
         }
 

@@ -12,6 +12,11 @@ namespace Player {
             yield return null;
         }
 
+        public override IEnumerator End() {
+            PlayerSystem.SetState(new End(PlayerSystem));
+            yield return null;
+        }
+
         /*
         // this means the player is close enough to hit the enemy now
         public override IEnumerator Hit() {

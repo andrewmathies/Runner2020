@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using TMPro;
 
 namespace Player {
     public class End : State {
@@ -10,16 +11,25 @@ namespace Player {
             PlayerSystem.Rigidbody.velocity = new Vector3(0, 0, 0);
             PlayerSystem.audioManager.StopAll();
 
-            /*
-            figure out if player won from the score
-            float score = PlayerSystem.EnemiesKilled / PlayerSystem.ObstacleCount;
+            bool won = PlayerSystem.HitPoints != 0;
+            string resultText;
 
-            get children of PlayerSystem.GameEnder
-            set text for result and score textObjects
-            
-            get animator component of PlayerSystem.GameEnder
-            set trigger to fade in menu and make menu interactable
-            */
+            if (won) {
+                resultText = "You Won";
+            } else {
+                resultText = "You Lost";
+            }
+
+            TextMeshProUGUI resultTMP = PlayerSystem.ResultObject.GetComponent<TextMeshProUGUI>();
+            resultTMP.SetText(resultText);
+
+            TextMeshProUGUI scoreTMP = PlayerSystem.ScoreObject.GetComponent<TextMeshProUGUI>();
+            scoreTMP.SetText("Score: " + PlayerSystem.EnemiesKilled + "/" + PlayerSystem.ObstacleCount);
+
+            Animator endMenuAnimator = PlayerSystem.GameEnder.GetComponent<Animator>();
+            endMenuAnimator.SetTrigger("ShowMenu");
+            Debug.Log("Transitioning in end menu");
+
             yield return null;
         }
     }

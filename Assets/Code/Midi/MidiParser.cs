@@ -15,10 +15,10 @@ namespace Midi {
 
         private void Awake() {
             // randomly pick a song
-            // there is an assumption here that whatever audio files exist in this folder have a matching midi file in the assets\midi folder
-            string[] songPaths = Directory.GetFiles(".\\Assets\\Audio\\", "*.mp3", SearchOption.TopDirectoryOnly);
+            // there is an assumption here that whatever midi files exist in this folder have a matching mp3 file in the assets\audio folder
+            string[] songPaths = Directory.GetFiles(".\\Assets\\Midi\\", "*.mid", SearchOption.TopDirectoryOnly);
             string[] songNames = new string[songPaths.Length];
-
+            
             for (int i = 0; i < songPaths.Length; i++) {
                 songNames[i] = Path.GetFileNameWithoutExtension(songPaths[i]);
             }

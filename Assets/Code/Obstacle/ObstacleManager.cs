@@ -30,6 +30,11 @@ namespace Obstacle {
                 return;
             }
 
+            if (parser.Tracks.Count == 0) {
+                Debug.Log("Could not parse the midi file");
+                return;
+            }
+
             // wait for the queues to fill up to avoid race conditions
             while (parser.Tracks[1].Events.Count == 0) {}
 

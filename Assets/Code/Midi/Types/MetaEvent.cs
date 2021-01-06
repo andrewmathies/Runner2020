@@ -68,7 +68,9 @@ namespace Midi {
                         break;
                     }
 
-                    throw new Exception("unknown type of meta event: " + metaTypeData);
+                    Debug.Log("unknown type of meta event: " + metaTypeData);
+                    break;
+                    //throw new Exception("unknown type of meta event: " + metaTypeData);
             }
         }
     }
