@@ -901,6 +901,32 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1056351946}
   m_PrefabAsset: {fileID: 0}
+--- !u!61 &988624259
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 988624258}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.065632224, y: -0.12288129}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2, y: 2}
+    newSize: {x: 2, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.49550557, y: 1.3704445}
+  m_EdgeRadius: 0
 --- !u!1 &1027091383
 GameObject:
   m_ObjectHideFlags: 0
@@ -974,6 +1000,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 560200639, guid: f6b919f3de2b62e42bcf2b29cd8fdab8, type: 3}
+      propertyPath: m_TagString
+      value: Sword
+      objectReference: {fileID: 0}
+    - target: {fileID: 560200641, guid: f6b919f3de2b62e42bcf2b29cd8fdab8, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 560200643, guid: f6b919f3de2b62e42bcf2b29cd8fdab8, type: 3}
+      propertyPath: m_AutoTiling
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1638503096586092648, guid: f6b919f3de2b62e42bcf2b29cd8fdab8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1059,9 +1097,19 @@ PrefabInstance:
       propertyPath: ScoreObject
       value: 
       objectReference: {fileID: 259172159}
+    - target: {fileID: 6282094281896430504, guid: f6b919f3de2b62e42bcf2b29cd8fdab8,
+        type: 3}
+      propertyPath: HitPoints
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6817353038840277480, guid: f6b919f3de2b62e42bcf2b29cd8fdab8,
         type: 3}
       propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6817353038840277480, guid: f6b919f3de2b62e42bcf2b29cd8fdab8,
+        type: 3}
+      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1078,6 +1126,33 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1056351946}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1493800918 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 560200639, guid: f6b919f3de2b62e42bcf2b29cd8fdab8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1056351946}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &1493800924
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1493800918}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1497431108
 GameObject:
   m_ObjectHideFlags: 0
@@ -1439,6 +1514,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 988624258}
+    - target: {fileID: 8315194157572926249, guid: 2c917bceeba70f94da4966985e2a0125,
+        type: 3}
+      propertyPath: obstacleSpriteOffset
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8315194157572926250, guid: 2c917bceeba70f94da4966985e2a0125,
         type: 3}
       propertyPath: m_LocalPosition.x

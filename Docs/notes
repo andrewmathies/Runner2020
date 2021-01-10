@@ -2,10 +2,7 @@ can't use new fantasy solo strings songs, because I left moving tempo field chec
 
 GOALS / TASKS
 -------
-- clean up text fields in menus
-- test that score is accurate
-- test that pressing button in end game menu changes scene back to main menu with no issues
-- add logic for being hit to player system state machine
-- clean up frames of beholder float animation
 - UI for current health and max health of player
-- tune speed / size of attack hit box for maximum fun. animation should be shorter
+- clean up text fields in menus
+- clean up frames of beholder float animation
+- tune the speed and size of attack for maximum fun. animation should be shorter

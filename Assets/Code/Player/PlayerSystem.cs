@@ -1,8 +1,10 @@
+using System.Collections;
 using System.Collections.Generic;
 
 using UnityEngine;
 
 using Audio;
+using Midi;
 
 namespace Player {
     public class PlayerSystem : StateMachine {
@@ -19,7 +21,6 @@ namespace Player {
         [HideInInspector]
         public Animator RunAnimator;
 
-        public int FrameCounter = 0;
         public int EnemiesKilled = 0;
         // obstacle count will be set by the obstacle manager
         [HideInInspector]
@@ -27,44 +28,43 @@ namespace Player {
         // current health of player
         public int HitPoints;
         [HideInInspector]
+        public int StartingHealth;
         public float InitialForce;
         public string debugState;
 
         [HideInInspector]
         public Queue<GameObject> obstaclesInRange;
-        
-        // this is how many times player can be hit and still live
-        // TODO: will definitely need to be tuned
-        public int MaxHealth;
+
+        public const float MillisecondsPerFrame = 0.0166f;
         
         private void Start() {
             this.obstaclesInRange = new Queue<GameObject>();
-            this.HitPoints = this.MaxHealth;
             this.InitialForce = this.Speed * 50;
+            this.StartingHealth = this.HitPoints;
 
             this.RunAnimator = gameObject.GetComponent<Animator>();
             this.audioManager = this.gameManager.GetComponent<AudioManager>();
             this.Rigidbody = gameObject.GetComponent<Rigidbody2D>();
-            SetState(new Begin(this));
+
+            // start moving the player
+            RunAnimator.SetBool("Run", true);
+            // start animating player run
+            Rigidbody.AddForce(Vector3.right * InitialForce);
+            SetState(new Run(this));
+            StartCoroutine(PlaySong());
         }
 
-        /*
+        
         private void OnTriggerEnter2D(Collider2D obstacleCollider) {
             GameObject obstacleGameObject = obstacleCollider.gameObject;
-            obstaclesInRange.Enqueue(obstacleGameObject);
-            //StartCoroutine(State.Hit());
-        }
 
-        private void OnTriggerExit2D(Collider2D obstacleCollider) {
-            // this is messy, but I want to destroy the obstacles after they are hit succesfully so I don't aware more than one point per enemy
-            if (obstaclesInRange.Count != 0) {
-                obstaclesInRange.Dequeue();
+            if (obstacleGameObject.tag != "Sword") {
+                Debug.Log("player hit: " + obstacleGameObject.tag);
+                // hide it and turn off the collission so we will only get hit once per enemy
+                obstacleCollider.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+                obstacleCollider.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+                StartCoroutine(State.Hit());
             }
-        }
-        */
-
-        private void FixedUpdate() {
-            FrameCounter++;
         }
 
         private void Update() {
@@ -89,17 +89,20 @@ namespace Player {
             }
         }
 
-        /*
-        // this should only be called from a state
-        public void TookDamage() {
-            this.HitPoints--;
+         private IEnumerator PlaySong() {
+            // audio file has 0.5 seconds of silence at beginning to avoid audio player hiccups
+            float silenceAtBeginning = 0.5f;
+            // the player needs some time to see the obstacles, so they will be running before the music starts
+            float runTime = 5f;
 
-            if (this.HitPoints == 0) {
-                SetState(new Lose(this));
-            } else {
-                SetState(new Invulnerable(this));
-            }
+            yield return new WaitForSeconds(runTime - silenceAtBeginning);
+            
+            // get reference to the midi data for this level
+            MidiParser parser = this.gameManager.GetComponent<MidiParser>();
+            string songTitle = parser.SelectedSong;
+            // start playing the audio for this level
+            this.audioManager.Play(songTitle);
+            Debug.Log("Starting audio for: " + songTitle);
         }
-        */
     }
 }

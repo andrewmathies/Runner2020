@@ -4,31 +4,39 @@ using UnityEngine;
 
 namespace Player {
     public class Rebound : State {
-        private bool Success;
+        private bool AttackHitEnemy;
+        private bool HitDuringRebound;
 
-        public Rebound(PlayerSystem playerSystem, bool success) : base(playerSystem) {
-            this.Success = success;
+        public Rebound(PlayerSystem playerSystem, bool AttackHitEnemy) : base(playerSystem) {
+            this.AttackHitEnemy = AttackHitEnemy;
+            this.HitDuringRebound = false;
         }
 
         public override IEnumerator Start() {
-            PlayerSystem.FrameCounter = 0;
+            float framesOfMissedAttack = 20f;
+            float framesOfRebound = 12f;
 
-            if (!this.Success) {
-                yield return new WaitUntil(() => PlayerSystem.FrameCounter >= 20);
+            if (!this.AttackHitEnemy) {
+                yield return new WaitForSeconds(PlayerSystem.MillisecondsPerFrame * framesOfMissedAttack);
             }
 
-            // this number > the length in frames of attack animation
-            yield return new WaitUntil(() => PlayerSystem.FrameCounter >= 12);
+            yield return new WaitForSeconds(PlayerSystem.MillisecondsPerFrame * framesOfRebound);
+
+            // this is protection for concurrency. the Hit method could be called while we sleep above
+            if (this.HitDuringRebound) {
+                this.HitDuringRebound = false;
+                yield break;
+            }
 
             PlayerSystem.SetState(new Run(PlayerSystem));
         }
 
-        /*
+        
         public override IEnumerator Hit() {
-            wasHit = true;
-            PlayerSystem.TookDamage();
-            yield break;
+            this.HitDuringRebound = true;
+
+            PlayerSystem.SetState(new Hit(PlayerSystem));
+            yield return null;
         }
-        */
     }
 }

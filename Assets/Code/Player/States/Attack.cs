@@ -8,8 +8,9 @@ namespace Player {
         }
 
         public override IEnumerator Start() {
-            PlayerSystem.AttackAnimator.SetTrigger("Attack");
             Debug.Log("starting an attack");
+            PlayerSystem.AttackAnimator.SetTrigger("Attack");
+            PlayerSystem.audioManager.Play("sword-slash-sound");
             
             if (PlayerSystem.obstaclesInRange.Count == 0) {
                 PlayerSystem.SetState(new Rebound(PlayerSystem, false));
@@ -24,7 +25,7 @@ namespace Player {
 
             // check if game is over
             PlayerSystem.EnemiesKilled++;
-            int enemiesEncountered = PlayerSystem.EnemiesKilled + PlayerSystem.MaxHealth - PlayerSystem.HitPoints;
+            int enemiesEncountered = PlayerSystem.EnemiesKilled + PlayerSystem.StartingHealth - PlayerSystem.HitPoints;
 
             if (enemiesEncountered == PlayerSystem.ObstacleCount) {
                 PlayerSystem.SetState(new End(PlayerSystem));

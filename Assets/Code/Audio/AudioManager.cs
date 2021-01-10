@@ -16,16 +16,19 @@ namespace Audio {
             string[] songNames = new string[songPaths.Length];
             Sounds = new Sound[songPaths.Length];
 
-            for (int i = 0; i < songPaths.Length; i++) {
-                songNames[i] = Path.GetFileNameWithoutExtension(songPaths[i]);
-            }
-
             for (int i = 0; i < songNames.Length; i++) {
+                songNames[i] = Path.GetFileNameWithoutExtension(songPaths[i]);
                 Sounds[i] = new Sound();
                 Sounds[i].Source = gameObject.AddComponent<AudioSource>();
                 AudioClip audioClip = Resources.Load<AudioClip>("Audio\\" + songNames[i]);
                 Sounds[i].Source.clip = audioClip;
                 Sounds[i].Source.volume = 0.5f;
+
+                // really dumb way of doing this. should move this to a seperate audio game object that doesn't load clips from disk
+                if (songNames[i] == "sword-slash-sound") {
+                    Sounds[i].Source.volume = 0.15f;
+                }
+
                 Sounds[i].Source.pitch = 1f;
                 Sounds[i].Name = songNames[i];
             }            

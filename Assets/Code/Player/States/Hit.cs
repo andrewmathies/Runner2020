@@ -4,36 +4,25 @@ using UnityEngine;
 
 namespace Player {
     public class Hit : State {
-        //private bool attacked = false;
-        private GameObject obstacle;
 
         public Hit(PlayerSystem playerSystem) : base(playerSystem) {
-            //this.obstacle = obstacle;
-        }/*
+        }
 
         public override IEnumerator Start() {
-            // the player gets 2n frames to react and make an attack
-            PlayerSystem.FrameCounter = 0;
-            yield return new WaitUntil(() => PlayerSystem.FrameCounter >= 10 || attacked);
+            PlayerSystem.HitPoints--;
+            Debug.Log("Player was hit by an enemy. current health is: " + PlayerSystem.HitPoints);
 
-            if (attacked) {
+            // update ui with new hit points
+
+            if (PlayerSystem.HitPoints == 0) {
+                PlayerSystem.SetState(new End(PlayerSystem));
                 yield break;
             }
 
-            //PlayerSystem.TookDamage();
+            float framesOfHitStun = 8f;
+
+            yield return new WaitForSeconds(PlayerSystem.MillisecondsPerFrame * framesOfHitStun);
+            PlayerSystem.SetState(new Run(PlayerSystem));
         }
-
-        public override IEnumerator Attack() {
-            attacked = true;
-
-            PlayerSystem.EnemiesKilled++;
-            // TODO: when we get art and animation for beholders, we should tell the obstacle
-            // it needs to start the death animation and destroy itself instead of destroying it here
-            GameObject obstacle = PlayerSystem.obstaclesInRange.Peek();
-            obstacle.GetComponent<SpriteRenderer>().enabled = false;
-
-            PlayerSystem.SetState(new Attack(PlayerSystem));
-            yield return null;
-        }*/
     }
 }
