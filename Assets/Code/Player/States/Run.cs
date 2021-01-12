@@ -12,11 +12,6 @@ namespace Player {
             yield return null;
         }
 
-        public override IEnumerator End() {
-            PlayerSystem.SetState(new End(PlayerSystem));
-            yield return null;
-        }
-
         public override IEnumerator Hit() {
             PlayerSystem.SetState(new Hit(PlayerSystem));
             yield return null;

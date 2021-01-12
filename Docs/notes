@@ -2,7 +2,11 @@ can't use new fantasy solo strings songs, because I left moving tempo field chec
 
 GOALS / TASKS
 -------
-- UI for current health and max health of player
 - clean up text fields in menus
 - clean up frames of beholder float animation
 - tune the speed and size of attack for maximum fun. animation should be shorter
+
+I feel like I made things worse today. there is fuckery going on with the various hitboxes. situations are arising where the player makes an attack and hits an enemy, but the player
+collider is being hit after the enemy has been removed from the queue. I guess the enemy 2d collider takes a while to disable??
+
+I just need one level where it feels like the timing for inputting attacks matches the visual of the enemy getting close enough for the entire song. ehhhhhhh

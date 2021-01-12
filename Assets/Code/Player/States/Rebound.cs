@@ -14,19 +14,19 @@ namespace Player {
 
         public override IEnumerator Start() {
             float framesOfMissedAttack = 20f;
-            float framesOfRebound = 12f;
+            float framesOfRebound = 9f;
 
             if (!this.AttackHitEnemy) {
                 yield return new WaitForSeconds(PlayerSystem.MillisecondsPerFrame * framesOfMissedAttack);
             }
-
-            yield return new WaitForSeconds(PlayerSystem.MillisecondsPerFrame * framesOfRebound);
 
             // this is protection for concurrency. the Hit method could be called while we sleep above
             if (this.HitDuringRebound) {
                 this.HitDuringRebound = false;
                 yield break;
             }
+
+            yield return new WaitForSeconds(PlayerSystem.MillisecondsPerFrame * framesOfRebound);
 
             PlayerSystem.SetState(new Run(PlayerSystem));
         }

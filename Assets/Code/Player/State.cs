@@ -21,9 +21,5 @@ namespace Player {
         public virtual IEnumerator Hit() {
             yield break;
         }
-
-        public virtual IEnumerator End() {
-            yield break;
-        }
     }
 }

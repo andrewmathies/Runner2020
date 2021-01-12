@@ -12,6 +12,7 @@ namespace Player {
         public GameObject GameEnder;
         public GameObject ResultObject;
         public GameObject ScoreObject;
+        public HealthUI HealthUI;
         
         public float Speed;
 
@@ -20,19 +21,14 @@ namespace Player {
         public Animator AttackAnimator;
         [HideInInspector]
         public Animator RunAnimator;
-
-        public int EnemiesKilled = 0;
-        // obstacle count will be set by the obstacle manager
-        [HideInInspector]
         public int ObstacleCount;
-        // current health of player
-        public int HitPoints;
         [HideInInspector]
         public int StartingHealth;
+
+        public int EnemiesKilled = 0;
         public float InitialForce;
         public string debugState;
 
-        [HideInInspector]
         public Queue<GameObject> obstaclesInRange;
 
         public const float MillisecondsPerFrame = 0.0166f;
@@ -40,7 +36,7 @@ namespace Player {
         private void Start() {
             this.obstaclesInRange = new Queue<GameObject>();
             this.InitialForce = this.Speed * 50;
-            this.StartingHealth = this.HitPoints;
+            this.StartingHealth = HealthUI.Health;
 
             this.RunAnimator = gameObject.GetComponent<Animator>();
             this.audioManager = this.gameManager.GetComponent<AudioManager>();
@@ -59,6 +55,7 @@ namespace Player {
             GameObject obstacleGameObject = obstacleCollider.gameObject;
 
             if (obstacleGameObject.tag != "Sword") {
+                obstaclesInRange.Dequeue();
                 Debug.Log("player hit: " + obstacleGameObject.tag);
                 // hide it and turn off the collission so we will only get hit once per enemy
                 obstacleCollider.gameObject.GetComponent<SpriteRenderer>().enabled = false;
@@ -76,10 +73,6 @@ namespace Player {
                 if (touch.phase == TouchPhase.Began) {
                     tap = true;
                 }
-            }
-
-            if (Input.GetButton("End")) {
-                StartCoroutine(State.End());
             }
 
             if (tap) {

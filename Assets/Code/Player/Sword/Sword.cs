@@ -18,6 +18,7 @@ namespace Player {
             GameObject obstacleGameObject = obstacleCollider.gameObject;
 
             if (obstacleGameObject.tag != "Player" && obstacleGameObject.tag != "Sword") {
+                Debug.Log("enemy has entered sword area");
                 this.playerSystem.obstaclesInRange.Enqueue(obstacleGameObject);
             }
         }
@@ -28,6 +29,7 @@ namespace Player {
 
             // this is messy, but I want to destroy the obstacles after they are hit succesfully so I don't aware more than one point per enemy
             if (this.playerSystem.obstaclesInRange.Count != 0 && obstacleGameObject.tag != "Player" && obstacleGameObject.tag != "Sword") {
+                Debug.Log("enemy has left sword area");
                 this.playerSystem.obstaclesInRange.Dequeue();
             }
         }

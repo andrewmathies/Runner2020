@@ -3,7 +3,8 @@
     "references": [
         "AudioAssembly",
         "Midi",
-        "Unity.TextMeshPro"
+        "Unity.TextMeshPro",
+        "CustomUIAssembly"
     ],
     "includePlatforms": [
         "Android",

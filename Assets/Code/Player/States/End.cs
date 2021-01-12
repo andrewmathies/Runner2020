@@ -11,7 +11,7 @@ namespace Player {
             PlayerSystem.Rigidbody.velocity = new Vector3(0, 0, 0);
             PlayerSystem.audioManager.StopAll();
 
-            bool won = PlayerSystem.HitPoints != 0;
+            bool won = PlayerSystem.HealthUI.Health != 0;
             string resultText;
 
             if (won) {

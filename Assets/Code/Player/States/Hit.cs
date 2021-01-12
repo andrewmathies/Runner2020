@@ -9,12 +9,12 @@ namespace Player {
         }
 
         public override IEnumerator Start() {
-            PlayerSystem.HitPoints--;
-            Debug.Log("Player was hit by an enemy. current health is: " + PlayerSystem.HitPoints);
+            PlayerSystem.HealthUI.Health--;
+            Debug.Log("Player was hit by an enemy");
 
             // update ui with new hit points
 
-            if (PlayerSystem.HitPoints == 0) {
+            if (PlayerSystem.HealthUI.Health == 0) {
                 PlayerSystem.SetState(new End(PlayerSystem));
                 yield break;
             }
