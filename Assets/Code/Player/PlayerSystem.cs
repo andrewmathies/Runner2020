@@ -28,6 +28,7 @@ namespace Player {
         public int EnemiesKilled = 0;
         public float InitialForce;
         public string debugState;
+        public bool DebugMode;
 
         public Queue<GameObject> obstaclesInRange;
 

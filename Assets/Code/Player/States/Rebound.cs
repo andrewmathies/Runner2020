@@ -14,7 +14,6 @@ namespace Player {
 
         public override IEnumerator Start() {
             float framesOfMissedAttack = 20f;
-            float framesOfRebound = 9f;
 
             if (!this.AttackHitEnemy) {
                 yield return new WaitForSeconds(PlayerSystem.MillisecondsPerFrame * framesOfMissedAttack);
@@ -25,8 +24,6 @@ namespace Player {
                 this.HitDuringRebound = false;
                 yield break;
             }
-
-            yield return new WaitForSeconds(PlayerSystem.MillisecondsPerFrame * framesOfRebound);
 
             PlayerSystem.SetState(new Run(PlayerSystem));
         }
