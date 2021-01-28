@@ -8,7 +8,8 @@ GOALS / TASKS
 - clean up frames of beholder float animation
 - tune the speed and size of attack for maximum fun. animation should be shorter
 
-I feel like I made things worse today. there is fuckery going on with the various hitboxes. situations are arising where the player makes an attack and hits an enemy, but the player
-collider is being hit after the enemy has been removed from the queue. I guess the enemy 2d collider takes a while to disable??
-
-I just need one level where it feels like the timing for inputting attacks matches the visual of the enemy getting close enough for the entire song. ehhhhhhh
+--------------
+Android issues
+- no sound. doesn't seem like we need a permission thing
+- somehow the level is starting but it's not loading any enemies so as soon as user
+attacks the level ends in victory. not loading the midi file?
