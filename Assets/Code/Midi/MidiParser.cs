@@ -14,24 +14,16 @@ namespace Midi {
         public string SelectedSong;
 
         private void Awake() {
-            // randomly pick a song
-            // there is an assumption here that whatever midi files exist in this folder have a matching mp3 file in the assets\audio folder
-            string[] songPaths = Directory.GetFiles(".\\Assets\\Midi\\", "*.mid", SearchOption.TopDirectoryOnly);
-            string[] songNames = new string[songPaths.Length];
-            
-            for (int i = 0; i < songPaths.Length; i++) {
-                songNames[i] = Path.GetFileNameWithoutExtension(songPaths[i]);
-            }
-
-            this.SelectedSong = songNames[UnityEngine.Random.Range(0, songNames.Length)];
-
-            Debug.Log("starting to parse the midi file for: " + SelectedSong);
-            this.Parse(".\\Assets\\Midi\\" + SelectedSong + ".mid");
+            Debug.Log("starting to parse the midi file for ai13");
+            this.SelectedSong = "ai13";
+            TextAsset MidiData = Resources.Load("Midi\\ai13") as TextAsset;
+            Stream s = new MemoryStream(MidiData.bytes);
+            this.Parse(s);
             this.SecondsPerTick = this.CalculateSecondsPerTick();
         }
 
-        private void Parse(string path) {
-            using (BinaryReader reader = new BinaryReader(File.Open(path, FileMode.Open))) {
+        private void Parse(Stream stream) {
+            using (BinaryReader reader = new BinaryReader(stream)) {
                 Chunk headerChunk = new Chunk(reader);
 
                 if (headerChunk.Type != "MThd") {

@@ -12,26 +12,25 @@ namespace Audio {
         private Sound[] Sounds;
 
         void Awake() {
-            string[] songPaths = Directory.GetFiles(".\\Assets\\Resources\\Audio\\", "*.mp3", SearchOption.TopDirectoryOnly);
-            string[] songNames = new string[songPaths.Length];
-            Sounds = new Sound[songPaths.Length];
+            UnityEngine.Object[] audioFiles = Resources.LoadAll("Audio", typeof(AudioClip));
+            Sounds = new Sound[audioFiles.Length];
+            int i = 0;
 
-            for (int i = 0; i < songNames.Length; i++) {
-                songNames[i] = Path.GetFileNameWithoutExtension(songPaths[i]);
+            foreach (UnityEngine.Object file in audioFiles) {
                 Sounds[i] = new Sound();
                 Sounds[i].Source = gameObject.AddComponent<AudioSource>();
-                AudioClip audioClip = Resources.Load<AudioClip>("Audio\\" + songNames[i]);
-                Sounds[i].Source.clip = audioClip;
+                Sounds[i].Source.clip = (AudioClip) file;
                 Sounds[i].Source.volume = 0.5f;
-
+                
                 // really dumb way of doing this. should move this to a seperate audio game object that doesn't load clips from disk
-                if (songNames[i] == "sword-slash-sound") {
+                if (file.name == "sword-slash-sound") {
                     Sounds[i].Source.volume = 0.15f;
                 }
 
                 Sounds[i].Source.pitch = 1f;
-                Sounds[i].Name = songNames[i];
-            }            
+                Sounds[i].Name = file.name;
+                i++;
+            }
         }
 
         public void Play(string name) {
