@@ -10,7 +10,7 @@ namespace Midi {
         public ushort Format, TrackCount, TimeDivision;
         public bool TimeBasedDivision;
         public List<Track> Tracks;
-        public float SecondsPerTick;
+        public double SecondsPerTick;
         public string SelectedSong;
 
         private void Awake() {
@@ -70,7 +70,7 @@ namespace Midi {
             }
         }
 
-        private float CalculateSecondsPerTick() {
+        private double CalculateSecondsPerTick() {
             Track metaTrack = this.Tracks[0];
 
             uint microSecondsPerQuarterNote = 0;
@@ -97,7 +97,8 @@ namespace Midi {
                  }
             }
 
-            return (Convert.ToSingle(microSecondsPerQuarterNote) / 1000000f) / Convert.ToSingle(ticksPerQuarterNote);
+            // this is really stupid and hacky but clearly the midi is slightly slower than the audio
+            return ((Convert.ToDouble(microSecondsPerQuarterNote) / 1000000.0) / Convert.ToDouble(ticksPerQuarterNote)) * .992;
         }
     }
 }

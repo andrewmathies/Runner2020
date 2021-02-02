@@ -69,7 +69,6 @@ namespace Player {
             bool tap = Input.GetButton("Attack");
             debugState = this.State.ToString();
             
-            //TODO: implement touch on android
             foreach(Touch touch in Input.touches) {
                 if (touch.phase == TouchPhase.Began) {
                     tap = true;

@@ -65,8 +65,8 @@ namespace Obstacle {
             return newObstacleGameObject;
         }
 
-        private void GenerateObstacles(Track track, float secondsPerTick) {
-            float timeInSong = 0f;
+        private void GenerateObstacles(Track track, double secondsPerTick) {
+            double timeInSong = 0.0;
             float playerSpeed = playerSystem.Speed;
             int obstacleCount = 0;
 
@@ -79,22 +79,27 @@ namespace Obstacle {
             while (track.Events.Count > 0) {
                 // read the next event in this track, and add the delta time for this event to our counter
                 Midi.Event e = track.Events.Dequeue();
-                timeInSong += Convert.ToSingle(e.Delta) * secondsPerTick;
+                timeInSong += Convert.ToDouble(e.Delta) * secondsPerTick;
 
                 if (e.GetType() == typeof(Midi.MidiEvent)) {
                     MidiEvent midiEvent = (MidiEvent) e;
 
                     // create a new obstacle if it was a note on event
                     if (midiEvent.Type == MidiEventType.NoteOn) {
+                        //Debug.Log("note on event " + obstacleCount + " should sound at: " + timeInSong);
                         obstacleCount++;
-                        float obstaclePosition = startPosition + timeInSong * playerSpeed;
-                        GameObject newObstacle = CreateObstacle(ObstacleType.Beholder, new Vector3(obstaclePosition, player.transform.position.y, 0));
+                        double obstaclePosition = startPosition + timeInSong * playerSpeed;
+                        GameObject newObstacle = CreateObstacle(ObstacleType.Beholder, new Vector3((float) obstaclePosition, player.transform.position.y, 0));
                     }
                 }
             }
 
             playerSystem.ObstacleCount = obstacleCount;
             Debug.Log("This track has " + obstacleCount + " obstacles");
+
+            if (obstacleCount == 0) {
+                playerSystem.SetState(new End(playerSystem));
+            }
         }
     }
 }
