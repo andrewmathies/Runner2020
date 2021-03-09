@@ -2,34 +2,55 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using Player;
+
 namespace Background {
     public class BackgroundGenerator : MonoBehaviour {
-        public GameObject stalactite;
-        public GameObject stalagmite;
-        public GameObject column;
-        public GameObject background;
+        public GameObject[] bgObjects;
+        
+        public float stepSize;
+        public float chanceToPlaceObject;
 
-        public Transform Player;
-
-        private float currentBackgroundX = 14.7f;
-        private float backgroundWidth = 19.2f;
-        private float backgroundY = 0.4f;
-
+        private float lastObstaclePosition;
+        //private float floorY;
         private Parallaxing p;
 
         // Start is called before the first frame update
-        void Start()
+        void Awake()
         {
             p = GetComponent<Parallaxing>();
+
+            /* get floorY
+            GameObject player = GameObject.Find("Player");
+            BoxCollider2D collider = player.GetComponent<BoxCollider2D>();
+            this.floorY = player.transform.position.y + collider.offset.y - collider.size.y / 2;
+            */
         }
 
-        // Update is called once per frame
-        void Update()
-        {
-            if (Player.position.x > currentBackgroundX) {
-                currentBackgroundX += backgroundWidth;
-                GameObject newBackground = Instantiate(background, new Vector3(currentBackgroundX, backgroundY, 200f), Quaternion.identity);
-                p.AddBackground(newBackground.transform);
+        public void SetLastObstaclePosition(float pos) {
+            // kinda weird, because paralaxxing moves these objects, we dont need to make them after a point
+            lastObstaclePosition = pos / 2f;
+
+            placeBackgroundObjects();
+        }
+
+        private void placeBackgroundObjects() {
+            float perlinY = 0;
+
+            foreach (GameObject bgObject in bgObjects) {
+                // step through 0 to last obstacle position in increments
+                for (float x = 0f; x < lastObstaclePosition; x += stepSize) {   
+                    float sample = Mathf.PerlinNoise(x, perlinY);
+                    perlinY += sample;
+
+                    if (sample > chanceToPlaceObject) {
+                        // place an object at this x
+                        GameObject backgroundObject = Instantiate(bgObject, new Vector3(x, 0.09f, bgObject.transform.position.z), Quaternion.identity);
+                        p.AddBackgroundObject(backgroundObject.transform);
+                    }
+                }
+
+                //perlinY += (float.MaxValue / bgObjects.Length) - 1;
             }
         }
     }

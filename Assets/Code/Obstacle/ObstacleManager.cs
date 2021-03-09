@@ -6,6 +6,7 @@ using UnityEngine;
 
 using Midi;
 using Player;
+using Background;
 
 namespace Obstacle {
     public class ObstacleManager : MonoBehaviour {
@@ -75,6 +76,7 @@ namespace Obstacle {
             float offset = runningSilenceTime * playerSpeed;
             // 0.25 is about half the character model. we want to place obstacles to line up with front of player not center
             float startPosition = player.transform.position.x + obstacleSpriteOffset + offset;
+            double obstaclePosition = 0;
             
             while (track.Events.Count > 0) {
                 // read the next event in this track, and add the delta time for this event to our counter
@@ -88,15 +90,20 @@ namespace Obstacle {
                     if (midiEvent.Type == MidiEventType.NoteOn) {
                         //Debug.Log("note on event " + obstacleCount + " should sound at: " + timeInSong);
                         obstacleCount++;
-                        double obstaclePosition = startPosition + timeInSong * playerSpeed;
+                        obstaclePosition = startPosition + timeInSong * playerSpeed;
                         GameObject newObstacle = CreateObstacle(ObstacleType.Beholder, new Vector3((float) obstaclePosition, player.transform.position.y, 0));
                     }
                 }
             }
 
+            // get reference to background generator. tell it what the last obstacle position was
+            BackgroundGenerator gen = gameObject.GetComponent<BackgroundGenerator>();
+            gen.SetLastObstaclePosition(Convert.ToSingle(obstaclePosition));
+
             playerSystem.ObstacleCount = obstacleCount;
             Debug.Log("This track has " + obstacleCount + " obstacles");
 
+            // if something messed up, just end immediately
             if (obstacleCount == 0) {
                 playerSystem.SetState(new End(playerSystem));
             }

@@ -1,6 +1,8 @@
 {
     "name": "Background",
-    "references": [],
+    "references": [
+        "GUID:79f15a7ec90bbc0409e94d2df5bcb8ed"
+    ],
     "includePlatforms": [
         "Android",
         "Editor"

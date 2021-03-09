@@ -2,9 +2,11 @@ can't use new fantasy solo strings songs, because I left moving tempo field chec
 
 GOALS / TASKS
 -------
-- write script to place stalagtites, stalgmites, and columns at random locations
-- test parallaxing
+- replace beholder animation with new and improved version
+- add to BackgroundGenerator
+    - change size of placed objects pseudo-randomly
+- add lighting and shadows
+- figure out how to scooby doo the background image
 - clean up text fields in menus
-- clean up frames of beholder float animation
 - tune the speed and size of attack for maximum fun. animation should be shorter
 - obstacles seem to slowly get behind the music. at the end of the level I'm tapping a full half beat late to time the tap with the enemy. we have a hacky solution, can we do better?
