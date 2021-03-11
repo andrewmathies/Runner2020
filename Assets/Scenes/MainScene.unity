@@ -609,7 +609,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1386182121}
   smoothSpeed: 0.125
-  offset: {x: 4, y: 3.37, z: -1}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -1050,9 +1049,9 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0.065632224, y: -0.12288129}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
+    border: {x: 0, y: 0.1875, z: 0, w: 0.25}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 2}
+    oldSize: {x: 2, y: 1.5625}
     newSize: {x: 2, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -1146,6 +1145,10 @@ PrefabInstance:
       propertyPath: m_AutoTiling
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2029820408, guid: f6b919f3de2b62e42bcf2b29cd8fdab8, type: 3}
+      propertyPath: m_DrawMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1638503096586092648, guid: f6b919f3de2b62e42bcf2b29cd8fdab8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1154,7 +1157,7 @@ PrefabInstance:
     - target: {fileID: 1638503096586092648, guid: f6b919f3de2b62e42bcf2b29cd8fdab8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.37
+      value: -3.375
       objectReference: {fileID: 0}
     - target: {fileID: 1638503096586092648, guid: f6b919f3de2b62e42bcf2b29cd8fdab8,
         type: 3}
@@ -1384,7 +1387,7 @@ MonoBehaviour:
   - {fileID: 5918528575187773302, guid: 0e018468e21e23c4ab92136a1b75d98a, type: 3}
   - {fileID: 1125972394606807846, guid: 8455fa2439b9d3541b6644fc5f69f1bc, type: 3}
   stepSize: 3
-  chanceToPlaceObject: 0.75
+  chanceToPlaceObject: 0.7
 --- !u!4 &1386182121 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1638503096586092648, guid: f6b919f3de2b62e42bcf2b29cd8fdab8,

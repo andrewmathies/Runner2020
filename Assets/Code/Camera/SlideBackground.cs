@@ -11,9 +11,9 @@ public class SlideBackground : MonoBehaviour
     void Start()
     {
         rend = GetComponent<Renderer>();
-        Debug.Log("name of main material: " + rend.material.name);
+        //Debug.Log("name of main material: " + rend.material.name);
         string[] names = rend.material.GetTexturePropertyNames();
-        Debug.Log("texture names:\n" + string.Join("\n", names));
+        //Debug.Log("texture names:\n" + string.Join("\n", names));
     }
 
     // Update is called once per frame
