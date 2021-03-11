@@ -10,6 +10,10 @@ namespace Background {
         
         public float stepSize;
         public float chanceToPlaceObject;
+        [Range(0.0f, 1.0f)]
+        public float MinSize;
+        [Range(1.0f, 2.0f)]
+        public float MaxSize;
 
         private float lastObstaclePosition;
         private float floorY;
@@ -62,7 +66,7 @@ namespace Background {
             // find the normal height of object, choose randomly between half that and full value
             SpriteRenderer sr = objectPrefab.GetComponent<SpriteRenderer>();
             float height = sr.bounds.size.y;
-            float newHeight = Random.Range(0.5f * height, height);
+            float newHeight = Random.Range(MinSize * height, MaxSize * height);
             
             // for some reason, I need to scale all of the foreground stuff by 3.773917 to get it to be the right size
             float scalingFactor = 3.773917f;

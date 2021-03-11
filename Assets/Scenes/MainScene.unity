@@ -1387,7 +1387,9 @@ MonoBehaviour:
   - {fileID: 5918528575187773302, guid: 0e018468e21e23c4ab92136a1b75d98a, type: 3}
   - {fileID: 1125972394606807846, guid: 8455fa2439b9d3541b6644fc5f69f1bc, type: 3}
   stepSize: 3
-  chanceToPlaceObject: 0.7
+  chanceToPlaceObject: 0.6
+  MinSize: 0.5
+  MaxSize: 1.1
 --- !u!4 &1386182121 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1638503096586092648, guid: f6b919f3de2b62e42bcf2b29cd8fdab8,
