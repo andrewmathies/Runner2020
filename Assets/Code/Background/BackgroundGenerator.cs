@@ -14,11 +14,13 @@ namespace Background {
         private float lastObstaclePosition;
         //private float floorY;
         private Parallaxing p;
+        private GameObject foregroundContainer;
 
         // Start is called before the first frame update
         void Awake()
         {
             p = GetComponent<Parallaxing>();
+            foregroundContainer = new GameObject("Foreground Container");
 
             /* get floorY
             GameObject player = GameObject.Find("Player");
@@ -45,7 +47,7 @@ namespace Background {
 
                     if (sample > chanceToPlaceObject) {
                         // place an object at this x
-                        GameObject backgroundObject = Instantiate(bgObject, new Vector3(x, 0.09f, bgObject.transform.position.z), Quaternion.identity);
+                        GameObject backgroundObject = Instantiate(bgObject, new Vector3(x, 0.09f, bgObject.transform.position.z), Quaternion.identity, foregroundContainer.transform);
                         p.AddBackgroundObject(backgroundObject.transform);
                     }
                 }
@@ -55,11 +57,3 @@ namespace Background {
         }
     }
 }
-
-/*
-requirements:
-
-place the actual background next to each other so there is never empty space
-place other objects psuedo randomly
-place them before they appear on screen
-*/

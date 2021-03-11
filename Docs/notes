@@ -2,11 +2,12 @@ can't use new fantasy solo strings songs, because I left moving tempo field chec
 
 GOALS / TASKS
 -------
-- replace beholder animation with new and improved version
 - add to BackgroundGenerator
     - change size of placed objects pseudo-randomly
+    - need to find floor position and then set position by calculating distance
+- fix the background so it scooby doos better. wtf did I pay for
+- hire Mitch to make some concept art for a dark souls-esque running knight guy
 - add lighting and shadows
-- figure out how to scooby doo the background image
 - clean up text fields in menus
 - tune the speed and size of attack for maximum fun. animation should be shorter
 - obstacles seem to slowly get behind the music. at the end of the level I'm tapping a full half beat late to time the tap with the enemy. we have a hacky solution, can we do better?

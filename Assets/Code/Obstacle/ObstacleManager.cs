@@ -59,9 +59,6 @@ namespace Obstacle {
                                                            position,
                                                            Quaternion.identity,
                                                            obstacleContainer.transform);
-            
-            Obstacle newObstacle = newObstacleGameObject.GetComponent<Obstacle>();
-            newObstacle.Init(type);
 
             return newObstacleGameObject;
         }
@@ -91,7 +88,7 @@ namespace Obstacle {
                         //Debug.Log("note on event " + obstacleCount + " should sound at: " + timeInSong);
                         obstacleCount++;
                         obstaclePosition = startPosition + timeInSong * playerSpeed;
-                        GameObject newObstacle = CreateObstacle(ObstacleType.Beholder, new Vector3((float) obstaclePosition, player.transform.position.y, 0));
+                        GameObject newObstacle = CreateObstacle(ObstacleType.Beholder, new Vector3((float) obstaclePosition, -1.8f, 0f));
                     }
                 }
             }
